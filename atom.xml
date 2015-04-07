@@ -4,7 +4,7 @@
   <subtitle><![CDATA[What is the meaning of life, the universe and everything?]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://moonsn.com/"/>
-  <updated>2015-04-06T13:51:45.837Z</updated>
+  <updated>2015-04-07T15:55:56.417Z</updated>
   <id>http://moonsn.com/</id>
   
   <author>
@@ -16,15 +16,45 @@
   
   <entry>
     <title><![CDATA[博客程序改成Hexo]]></title>
-    <link href="http://moonsn.com/2015/04/06/hello-world/"/>
-    <id>http://moonsn.com/2015/04/06/hello-world/</id>
-    <published>2015-04-06T13:51:45.837Z</published>
-    <updated>2015-04-06T13:51:45.837Z</updated>
-    <content type="html"><![CDATA[<p>没有放在git上，所以用ftp上传。<br>以前的文章就等有空在同步上来^_^</p>
+    <link href="http://moonsn.com/2015/04/08/hello-world/"/>
+    <id>http://moonsn.com/2015/04/08/hello-world/</id>
+    <published>2015-04-07T15:55:56.417Z</published>
+    <updated>2015-04-07T15:55:56.417Z</updated>
+    <content type="html"><![CDATA[<h2 id="4-7_update">4.7 update</h2><p>最终还是放到github上了，很简单，ftp每次上传一大堆东西好不合理<br>git大法好</p>
+<hr>
+<p>没有放在git上，所以用ftp上传。<br>以前的文章就等有空在同步上来^_^</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>没有放在git上，所以用ftp上传。<br>以前的文章就等有空在同步上来^_^</p>
+    <![CDATA[<h2 id="4-7_update">4.7 update</h2><p>最终还是放到github上了，很简单，ftp每次上传一大堆东西好不合理<br>git大法好</p>
+<hr>
+<p>没有放在git上，所以用ftp上传。<br>以前的文章就等有空在同步上来^_^</p>
 ]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[something with cplusplus]]></title>
+    <link href="http://moonsn.com/2015/04/08/something-with-cplusplus/"/>
+    <id>http://moonsn.com/2015/04/08/something-with-cplusplus/</id>
+    <published>2015-04-07T15:50:41.000Z</published>
+    <updated>2015-04-07T15:52:58.076Z</updated>
+    <content type="html"><![CDATA[<p>亮哥也在看c++，所以就有下面的问题：</p>
+<pre><code><span class="comment">`int</span> <span class="comment">a</span> <span class="comment">=</span> <span class="comment">10</span><span class="string">,</span> <span class="comment">b</span> <span class="comment">=</span> <span class="comment">20</span><span class="string">,</span> <span class="comment">c</span> <span class="comment">=</span> <span class="comment">30</span><span class="string">,</span> <span class="comment">d</span> <span class="comment">=</span> <span class="comment">40</span><span class="string">,</span> <span class="comment">e</span> <span class="comment">=</span> <span class="comment">50</span><span class="string">,</span> <span class="comment">f=</span> <span class="comment">60;`</span>
+<span class="comment">`a</span> <span class="literal">+</span><span class="literal">+</span><span class="string">,</span> <span class="comment">b</span> <span class="literal">+</span><span class="literal">+</span> <span class="comment">?</span> <span class="comment">c</span> <span class="literal">+</span><span class="literal">+</span><span class="string">,</span> <span class="comment">d</span> <span class="literal">+</span><span class="literal">+</span> <span class="comment">:</span>  <span class="comment">e</span><span class="literal">+</span><span class="literal">+</span> <span class="string">,</span> <span class="comment">f</span> <span class="literal">+</span><span class="literal">+</span><span class="comment">;`</span>
+</code></pre><p>又是奇葩的坑。</p>
+<p>首先明确优先级顺序：<code>?:</code> &gt; <code>,</code></p>
+<p>逗号表达式是左结合的。</p>
+<p>说要计算顺序：</p>
+<pre><code>-<span class="ruby"> a++
+</span>-<span class="ruby"> b++
+</span>-<span class="ruby"> c++
+</span>-<span class="ruby"> d++
+</span>-<span class="ruby"> f++ (逗号表达式的值是什么呢？最右边的值！对，所以f++了,<span class="variable">@_</span>@我猜的。。。。。求吐槽) </span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p>亮哥也在看c++，所以就有下面的问题：</p>
+<pre><code><span class="comment">`int</span> <span class="comment">a</span> <span class="comment">=</span> <span ]]>
     </summary>
     
   </entry>
