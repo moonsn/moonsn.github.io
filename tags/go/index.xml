@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/go/</link>
+    <link>http://moonsn.github.io/tags/go/</link>
     <description>Recent content in Go on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 21 Oct 2015 19:46:01 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Golang中的方法与接口</title>
-      <link>http://moonsn.com/post/golang_3/</link>
+      <link>http://moonsn.github.io/post/golang_3/</link>
       <pubDate>Wed, 21 Oct 2015 19:46:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_3/</guid>
+      <guid>http://moonsn.github.io/post/golang_3/</guid>
       <description>
 
 &lt;h3 id=&#34;方法:1fe650016e84e1375349ba764bbab8d3&#34;&gt;方法&lt;/h3&gt;
@@ -349,10 +349,10 @@ func main() {
     
     <item>
       <title>Golang中的map和闭包</title>
-      <link>http://moonsn.com/post/golang_2/</link>
+      <link>http://moonsn.github.io/post/golang_2/</link>
       <pubDate>Wed, 21 Oct 2015 14:56:57 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_2/</guid>
+      <guid>http://moonsn.github.io/post/golang_2/</guid>
       <description>
 
 &lt;h3 id=&#34;range:69277b731da08b89fa256107618093a3&#34;&gt;Range&lt;/h3&gt;
@@ -546,10 +546,10 @@ func main() {
     
     <item>
       <title>Golang中的Slice</title>
-      <link>http://moonsn.com/post/golangslice/</link>
+      <link>http://moonsn.github.io/post/golangslice/</link>
       <pubDate>Wed, 21 Oct 2015 14:17:10 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golangslice/</guid>
+      <guid>http://moonsn.github.io/post/golangslice/</guid>
       <description>
 
 &lt;h3 id=&#34;what:90cfd4505499368a99e1f321bbb29b12&#34;&gt;What?&lt;/h3&gt;
@@ -611,10 +611,10 @@ func main() {
     
     <item>
       <title>Golang的结构，基本类型及语法</title>
-      <link>http://moonsn.com/post/aboutgolang/</link>
+      <link>http://moonsn.github.io/post/aboutgolang/</link>
       <pubDate>Wed, 21 Oct 2015 11:00:08 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/aboutgolang/</guid>
+      <guid>http://moonsn.github.io/post/aboutgolang/</guid>
       <description>
 
 &lt;p&gt;golang需要指定一个工作目录&lt;/p&gt;

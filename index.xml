@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>moonsn&#39;s profile</title>
-    <link>http://moonsn.com/</link>
+    <link>http://moonsn.github.io/</link>
     <description>Recent content on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hugo生成静态文件</title>
-      <link>http://moonsn.com/post/deploymenthugo/</link>
+      <link>http://moonsn.github.io/post/deploymenthugo/</link>
       <pubDate>Wed, 21 Oct 2015 19:54:25 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/deploymenthugo/</guid>
+      <guid>http://moonsn.github.io/post/deploymenthugo/</guid>
       <description>&lt;pre&gt;&lt;code&gt;$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -22,10 +22,10 @@
     
     <item>
       <title>Golang中的方法与接口</title>
-      <link>http://moonsn.com/post/golang_3/</link>
+      <link>http://moonsn.github.io/post/golang_3/</link>
       <pubDate>Wed, 21 Oct 2015 19:46:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_3/</guid>
+      <guid>http://moonsn.github.io/post/golang_3/</guid>
       <description>
 
 &lt;h3 id=&#34;方法:1fe650016e84e1375349ba764bbab8d3&#34;&gt;方法&lt;/h3&gt;
@@ -360,10 +360,10 @@ func main() {
     
     <item>
       <title>Golang中的map和闭包</title>
-      <link>http://moonsn.com/post/golang_2/</link>
+      <link>http://moonsn.github.io/post/golang_2/</link>
       <pubDate>Wed, 21 Oct 2015 14:56:57 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_2/</guid>
+      <guid>http://moonsn.github.io/post/golang_2/</guid>
       <description>
 
 &lt;h3 id=&#34;range:69277b731da08b89fa256107618093a3&#34;&gt;Range&lt;/h3&gt;
@@ -557,10 +557,10 @@ func main() {
     
     <item>
       <title>Golang中的Slice</title>
-      <link>http://moonsn.com/post/golangslice/</link>
+      <link>http://moonsn.github.io/post/golangslice/</link>
       <pubDate>Wed, 21 Oct 2015 14:17:10 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golangslice/</guid>
+      <guid>http://moonsn.github.io/post/golangslice/</guid>
       <description>
 
 &lt;h3 id=&#34;what:90cfd4505499368a99e1f321bbb29b12&#34;&gt;What?&lt;/h3&gt;
@@ -622,10 +622,10 @@ func main() {
     
     <item>
       <title>Golang的结构，基本类型及语法</title>
-      <link>http://moonsn.com/post/aboutgolang/</link>
+      <link>http://moonsn.github.io/post/aboutgolang/</link>
       <pubDate>Wed, 21 Oct 2015 11:00:08 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/aboutgolang/</guid>
+      <guid>http://moonsn.github.io/post/aboutgolang/</guid>
       <description>
 
 &lt;p&gt;golang需要指定一个工作目录&lt;/p&gt;
@@ -931,10 +931,10 @@ func main() {
     
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://moonsn.com/post/hugo-single/</link>
+      <link>http://moonsn.github.io/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/hugo-single/</guid>
+      <guid>http://moonsn.github.io/post/hugo-single/</guid>
       <description>
 
 &lt;p&gt;single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。&lt;/p&gt;
@@ -1076,19 +1076,19 @@ func main() {
     
     <item>
       <title>about</title>
-      <link>http://moonsn.com/about/</link>
+      <link>http://moonsn.github.io/about/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/about/</guid>
+      <guid>http://moonsn.github.io/about/</guid>
       <description></description>
     </item>
     
     <item>
       <title>std::move()将左值转化为右值</title>
-      <link>http://moonsn.com/post/welcome/</link>
+      <link>http://moonsn.github.io/post/welcome/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/welcome/</guid>
+      <guid>http://moonsn.github.io/post/welcome/</guid>
       <description>
 
 &lt;p&gt;this is summary?&lt;/p&gt;
@@ -1128,10 +1128,10 @@ int main() {
     
     <item>
       <title>选择Hugo作为博客生成器</title>
-      <link>http://moonsn.com/post/first/</link>
+      <link>http://moonsn.github.io/post/first/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:50 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/first/</guid>
+      <guid>http://moonsn.github.io/post/first/</guid>
       <description>&lt;p&gt;最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。
 一直在寻找一个简单易用的博客，WordPress太过臃肿了。&lt;/p&gt;
 
