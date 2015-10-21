@@ -1,0 +1,497 @@
+<!doctype html>
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" property="og:description" content="方法 Go虽然没有类，但是可以在struct上定义方法。 package main import ( &quot;fmt&quot; &quot;math&quot; ) type Vertex struct { X, Y float64 } func (v *Vertex) Abs() float64 { return math.Sqrt(v.X*v.X &#43; v.Y*v.Y) } func (v *Vertex) Show(what string) { fmt.Println(&quot;show &quot;, what) } func main() { v := &amp;Vertex{3, 4} fmt.Println(v.Abs()) v.Show(&quot;me&quot;) } 其实，只要在你的包里声明的任何类型都可以定义方法 package main import ( &quot;fmt&quot; &quot;math&quot; ) type MyFloat float64 func (f MyFloat) Abs() float64 { if f &lt; 0 { return float64(-f) } return float64(f) } func main() { f := MyFloat(-math.Sqrt2) fmt.Println(f.Abs()) } 通常方法是绑在指针上，这样避免了在传参的时候复制，也便于方法直接修改指针所指向的值。 接口 接口类型是一个包含一组方法定义的集合。也就是接口里定义了一组方法。 只要一个类型实现了这个接口了的方法，就能赋给这个接口类型。 package main import ( &quot;fmt&quot; &quot;math&quot; ) type Abser interface { Abs() float64 } func main() { var a Abser f := MyFloat(-math.Sqrt2) v := Vertex{3, 4} a = f // a MyFloat 实现了 Abser a = &amp;v // a *Vertex 实现了 Abser // 下面一行，v 是一个 Vertex（而不是 *Vertex） // 所以没有实现 Abser。 a = v fmt.Println(a.Abs()) } type MyFloat float64 func (f MyFloat) Abs() float64 { if f &lt; 0 { return float64(-f) } return float64(f) } type Vertex struct { X, Y float64 } func (v *Vertex) Abs() float64 { return math.Sqrt(v.X*v.X &#43; v.Y*v.Y) } exercise-stringer.go 这是对fmt包里的Stringer接口的使用，实现了他里面定义的String() string方法.">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Golang中的方法与接口"/>
+<meta property="og:site_name" content="moonsn&#39;s profile"/>
+<meta property="og:url" content="http://moonsn.com/post/golang_3/">
+<meta property="article:published_time" content="2015-10-21"/>
+<meta property="article:modified_time" content="2015-10-21"/>
+
+
+  <meta property="article:tag" content="golang">
+  <meta property="article:tag" content="go">
+  
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang中的方法与接口">
+<meta name="twitter:description" content="方法 Go虽然没有类，但是可以在struct上定义方法。 package main import ( &quot;fmt&quot; &quot;math&quot; ) type Vertex struct { X, Y float64 } func (v *Vertex) Abs() float64 { return math.Sqrt(v.X*v.X &#43; v.Y*v.Y) } func (v *Vertex) Show(what string) { fmt.Println(&quot;show &quot;, what) } func main() { v := &amp;Vertex{3, 4} fmt.Println(v.Abs()) v.Show(&quot;me&quot;) } 其实，只要在你的包里声明的任何类型都可以定义方法 package main import ( &quot;fmt&quot; &quot;math&quot; ) type MyFloat float64 func (f MyFloat) Abs() float64 { if f &lt; 0 { return float64(-f) } return float64(f) } func main() { f := MyFloat(-math.Sqrt2) fmt.Println(f.Abs()) } 通常方法是绑在指针上，这样避免了在传参的时候复制，也便于方法直接修改指针所指向的值。 接口 接口类型是一个包含一组方法定义的集合。也就是接口里定义了一组方法。 只要一个类型实现了这个接口了的方法，就能赋给这个接口类型。 package main import ( &quot;fmt&quot; &quot;math&quot; ) type Abser interface { Abs() float64 } func main() { var a Abser f := MyFloat(-math.Sqrt2) v := Vertex{3, 4} a = f // a MyFloat 实现了 Abser a = &amp;v // a *Vertex 实现了 Abser // 下面一行，v 是一个 Vertex（而不是 *Vertex） // 所以没有实现 Abser。 a = v fmt.Println(a.Abs()) } type MyFloat float64 func (f MyFloat) Abs() float64 { if f &lt; 0 { return float64(-f) } return float64(f) } type Vertex struct { X, Y float64 } func (v *Vertex) Abs() float64 { return math.Sqrt(v.X*v.X &#43; v.Y*v.Y) } exercise-stringer.go 这是对fmt包里的Stringer接口的使用，实现了他里面定义的String() string方法.">
+
+
+
+  <title>
+      
+        Golang中的方法与接口 &middot; moonsn&#39;s profile
+      
+  </title>
+
+  <link rel="canonical" href="http://moonsn.com/post/golang_3/">
+  
+  <link rel="shortcut icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  
+  <link rel="alternate" title="RSS" href="http://moonsn.com/index.xml" type="application/rss+xml">
+
+  <link rel="stylesheet" href="http://moonsn.com//css/main.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+
+
+</head>
+
+<body>
+<section class="site-nav">
+  <header>
+    <nav id="navigation">
+      <a class="brand" href="http://moonsn.com/">
+        
+          moonsn&#39;s profile
+        
+      </a>
+      
+      <a href="#">About</a>
+      
+    </nav>
+  </header>
+</section>
+
+
+
+<article>
+  <div class="container">
+    <header>
+      <h1 class="title">Golang中的方法与接口</h1>
+      <div class="meta">
+        <time pubdate datetime="2015-10-21" title="2015-10-21">2015-10-21</time>
+
+        <ul class="article-tags">
+          
+          <li>
+              <a href="http://moonsn.com/tags/golang">
+                  <i class="fa fa-tags"></i>
+                  golang
+              </a>
+          </li>
+          
+          <li>
+              <a href="http://moonsn.com/tags/go">
+                  <i class="fa fa-tags"></i>
+                  go
+              </a>
+          </li>
+          
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      
+
+<h3 id="方法:1fe650016e84e1375349ba764bbab8d3">方法</h3>
+
+<p>Go虽然没有类，但是可以在struct上定义方法。</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func (v *Vertex) Show(what string) {
+	fmt.Println(&quot;show &quot;, what)
+}
+
+func main() {
+	v := &amp;Vertex{3, 4}
+	fmt.Println(v.Abs())
+	v.Show(&quot;me&quot;)
+}
+</code></pre>
+
+<p>其实，只要在你的包里声明的任何类型都可以定义方法</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type MyFloat float64
+
+func (f MyFloat) Abs() float64 {
+	if f &lt; 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+
+func main() {
+	f := MyFloat(-math.Sqrt2)
+	fmt.Println(f.Abs())
+}
+</code></pre>
+
+<p>通常方法是绑在指针上，这样避免了在传参的时候复制，也便于方法直接修改指针所指向的值。</p>
+
+<h3 id="接口:1fe650016e84e1375349ba764bbab8d3">接口</h3>
+
+<p>接口类型是一个包含<code>一组方法定义</code>的集合。也就是接口里定义了一组方法。</p>
+
+<p>只要一个类型实现了这个接口了的方法，就能赋给这个接口类型。</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math&quot;
+)
+
+type Abser interface {
+	Abs() float64
+}
+
+func main() {
+	var a Abser
+	f := MyFloat(-math.Sqrt2)
+	v := Vertex{3, 4}
+
+	a = f  // a MyFloat 实现了 Abser
+	a = &amp;v // a *Vertex 实现了 Abser
+
+	// 下面一行，v 是一个 Vertex（而不是 *Vertex）
+	// 所以没有实现 Abser。
+	a = v
+
+	fmt.Println(a.Abs())
+}
+
+type MyFloat float64
+
+func (f MyFloat) Abs() float64 {
+	if f &lt; 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+</code></pre>
+
+<h3 id="exercise-stringer-go:1fe650016e84e1375349ba764bbab8d3">exercise-stringer.go</h3>
+
+<p>这是对<code>fmt</code>包里的<code>Stringer</code>接口的使用，实现了他里面定义的<code>String() string</code>方法.</p>
+
+<p><code>Stringer</code>是一个用<code>string</code>描述自己的接口</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+type IPAddr [4]byte
+
+// TODO: Add a &quot;String() string&quot; method to IPAddr.
+func (x IPAddr) String() string {
+	return fmt.Sprintf(&quot;%d.%d.%d.%d&quot;, x[0],x[1],x[2],x[3]);
+}
+
+func main() {
+	addrs := map[string]IPAddr{
+		&quot;loopback&quot;:  {127, 0, 0, 1},
+		&quot;googleDNS&quot;: {8, 8, 8, 8},
+	}
+	for n, a := range addrs {
+		fmt.Printf(&quot;%v: %v\n&quot;, n, a)
+	}
+}
+</code></pre>
+
+<h3 id="error:1fe650016e84e1375349ba764bbab8d3">Error</h3>
+
+<p>与fmt.Stringer类似，error类型是一个内建接口.</p>
+
+<pre><code>type error interface {
+	Error() string
+}
+</code></pre>
+
+<p>通常函数会返回一个 error 值，调用的它的代码应当判断这个错误是否等于 nil， 来进行错误处理。</p>
+
+<p>i, err := strconv.Atoi(&ldquo;42&rdquo;)
+if err != nil {
+    fmt.Printf(&ldquo;couldn&rsquo;t convert number: %v\n&rdquo;, err)
+}
+fmt.Println(&ldquo;Converted integer:&ldquo;, i)
+error 为 nil 时表示成功；非 nil 的 error 表示错误。</p>
+
+<p><code>exercise-errors.go</code></p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+type ErrNegativeSqrt float64
+
+func (e ErrNegativeSqrt) Error() string {
+	return fmt.Sprintf(&quot;cannot Sqrt negative number: %v&quot;, float64(e))
+}
+
+func Sqrt(x float64) (float64, error) {
+	if x &lt; 0 {
+		return 0, ErrNegativeSqrt(x)
+	}
+	z := x
+	for i := 0; i &lt; 10; i++ {
+		z = z - (z * z - x)/(2*z)
+	}
+	return z, nil
+}
+
+
+
+func main() {
+	fmt.Println(Sqrt(2))
+	fmt.Println(Sqrt(-2))
+}
+</code></pre>
+
+<h3 id="exercise-rot-reader-go:1fe650016e84e1375349ba764bbab8d3">exercise-rot-reader.go</h3>
+
+<p>这个开始没有读入到<code>io.Reader</code>&hellip;坑了半天</p>
+
+<pre><code>package main
+
+import (
+	&quot;io&quot;
+	&quot;os&quot;
+	&quot;strings&quot;
+)
+
+type rot13Reader struct {
+	r io.Reader
+}
+
+func (rot *rot13Reader) Read(bytes []byte) (int, error) {
+	n, err := rot.r.Read(bytes)
+	s := &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzNOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm&quot;
+	for index := range bytes {
+		if !((bytes[index] &gt;= 'a' &amp;&amp; bytes[index] &lt;='z') || (bytes[index] &gt;= 'A' &amp;&amp; bytes[index] &lt;='Z')){
+			continue
+		}
+		pos := strings.IndexByte(s, bytes[index])
+		bytes[index] = s[pos + 26*2]
+	}
+	return n, err
+}
+
+func main() {
+	s := strings.NewReader(&quot;Lbh penpxrq gur pbqr!&quot;)
+	r := rot13Reader{s}
+	io.Copy(os.Stdout, &amp;r)
+}
+</code></pre>
+
+<h3 id="web-servers:1fe650016e84e1375349ba764bbab8d3">web servers</h3>
+
+<p>http包为任何实现了<code>http.Handler</code>接口的值提供服务</p>
+
+<pre><code>package http
+
+type Handler interface {
+    ServeHTTP(w ResponseWriter, r *Request)
+}
+</code></pre>
+
+<p>官网的例子：</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+)
+
+type Hello struct{}
+
+func (h Hello) ServeHTTP(
+	w http.ResponseWriter,
+	r *http.Request) {
+	fmt.Fprint(w, &quot;Hello!&quot;)
+}
+
+func main() {
+	var h Hello
+	err := http.ListenAndServe(&quot;localhost:4000&quot;, h)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre>
+
+<h3 id="exercise-http-handlers-go:1fe650016e84e1375349ba764bbab8d3">exercise-http-handlers.go</h3>
+
+<pre><code>package main
+
+import (
+		&quot;fmt&quot;
+		&quot;log&quot;
+		&quot;net/http&quot;
+	   )
+
+type String string
+
+type Struct struct {
+	Greeting	string
+		Punct		string
+		Who			string
+}
+
+func (str String) ServeHTTP(
+		w http.ResponseWriter,
+		r *http.Request) {
+	fmt.Fprint(w, str)
+}
+
+func (stu *Struct) ServeHTTP(
+		w http.ResponseWriter,
+		r *http.Request) {
+	fmt.Fprint(w,fmt.Sprintln(stu.Greeting, stu.Punct, stu.Who))
+}
+
+func main() {
+	// your http.Handle calls here
+	http.Handle(&quot;/string&quot;, String(&quot;I'm a frayed knot.&quot;))
+	http.Handle(&quot;/struct&quot;, &amp;Struct{&quot;Hello&quot;, &quot;:&quot;, &quot;Gophers!&quot;})
+	log.Fatal(http.ListenAndServe(&quot;localhost:4000&quot;, nil))
+}
+</code></pre>
+
+<h3 id="excercise-images-go:1fe650016e84e1375349ba764bbab8d3">excercise-images.go</h3>
+
+<pre><code>package main
+
+import &quot;golang.org/x/tour/pic&quot;
+import &quot;image&quot;
+import &quot;image/color&quot;
+
+type Image struct{
+	w, h int
+	colr uint8
+}
+
+func (IMG Image) ColorModel() color.Model {
+	return color.RGBAModel
+}
+
+func (IMG Image) Bounds() image.Rectangle {
+	return image.Rect(0, 0, 200, 200)
+}
+
+func (IMG Image) At(x, y int) color.Color {
+	return color.RGBA{uint8(x), uint8(y), 255,255}
+}
+
+func main() {
+	m := Image{100,100,200}
+	pic.ShowImage(m)
+}
+</code></pre>
+
+    </section>
+
+    <footer>
+      <address>
+        
+        <img src="http://www.gravatar.com/avatar/da64325ae71b7c245a894c6862ed9046.png" />
+        
+        <p>
+          
+          Written by <strong><a rel="author" href="https://weibo.com/moonsn1994" title="@moonsn1994 on Weibo" target="_blank">moonsn1994</a></strong><br>
+          
+          <span class="muted">what is biography?</span>
+        </p>
+      </address>
+    </footer>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav>
+      <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
+      <a href="#">About</a> 
+    </nav>
+
+    <nav class="social">
+      
+
+
+<a href="https://github.com/moonsn" title="@moonsn on GitHub" target="_blank"><i class="fa fa-github-square"></i></a>
+
+
+
+<a href="http://instagram.com/moonsn1994" title="@moonsn1994 on Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+
+
+<a href="http://moonsn.com/index.xml" title="RSS Feed" target="_blank">
+  <i class="fa fa-rss"></i>
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://moonsn.com/js/main.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  $(document).ready(function() {
+  
+  $('p:has(img)').css('text-align', 'center');
+  $('iframe').css('style', 'display: block; margin: 0px auto;');
+  });
+</script>
+
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+
+</html>
+

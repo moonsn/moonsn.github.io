@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" property="og:description" content="Range range可以对slice或者map进行迭代循环 package main import &quot;fmt&quot; var pow = []int{1, 2, 4, 8, 16, 32, 64, 128} func main() { for i, v := range pow { fmt.Printf(&quot;2**%d = %d\n&quot;, i, v) } } exercise-slices.go package main import &quot;golang.org/x/tour/pic&quot; func Pic(dx, dy int) [][]uint8 { pic := make([][]uint8, dy); for y := range pic { pic[y] = make([]uint8, dx) for x := range pic[y] { pic[y][x] = uint8((x&#43;y)/2) } } return pic } func main() { pic.Show(Pic) } map map在使用前必须用make来创建.">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Golang中的map和闭包"/>
+<meta property="og:site_name" content="moonsn&#39;s profile"/>
+<meta property="og:url" content="http://moonsn.com/post/golang_2/">
+<meta property="article:published_time" content="2015-10-21"/>
+<meta property="article:modified_time" content="2015-10-21"/>
+
+
+  <meta property="article:tag" content="golang">
+  <meta property="article:tag" content="go">
+  
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang中的map和闭包">
+<meta name="twitter:description" content="Range range可以对slice或者map进行迭代循环 package main import &quot;fmt&quot; var pow = []int{1, 2, 4, 8, 16, 32, 64, 128} func main() { for i, v := range pow { fmt.Printf(&quot;2**%d = %d\n&quot;, i, v) } } exercise-slices.go package main import &quot;golang.org/x/tour/pic&quot; func Pic(dx, dy int) [][]uint8 { pic := make([][]uint8, dy); for y := range pic { pic[y] = make([]uint8, dx) for x := range pic[y] { pic[y][x] = uint8((x&#43;y)/2) } } return pic } func main() { pic.Show(Pic) } map map在使用前必须用make来创建.">
+
+
+
+  <title>
+      
+        Golang中的map和闭包 &middot; moonsn&#39;s profile
+      
+  </title>
+
+  <link rel="canonical" href="http://moonsn.com/post/golang_2/">
+  
+  <link rel="shortcut icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  
+  <link rel="alternate" title="RSS" href="http://moonsn.com/index.xml" type="application/rss+xml">
+
+  <link rel="stylesheet" href="http://moonsn.com//css/main.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+
+
+</head>
+
+<body>
+<section class="site-nav">
+  <header>
+    <nav id="navigation">
+      <a class="brand" href="http://moonsn.com/">
+        
+          moonsn&#39;s profile
+        
+      </a>
+      
+      <a href="#">About</a>
+      
+    </nav>
+  </header>
+</section>
+
+
+
+<article>
+  <div class="container">
+    <header>
+      <h1 class="title">Golang中的map和闭包</h1>
+      <div class="meta">
+        <time pubdate datetime="2015-10-21" title="2015-10-21">2015-10-21</time>
+
+        <ul class="article-tags">
+          
+          <li>
+              <a href="http://moonsn.com/tags/golang">
+                  <i class="fa fa-tags"></i>
+                  golang
+              </a>
+          </li>
+          
+          <li>
+              <a href="http://moonsn.com/tags/go">
+                  <i class="fa fa-tags"></i>
+                  go
+              </a>
+          </li>
+          
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      
+
+<h3 id="range:69277b731da08b89fa256107618093a3">Range</h3>
+
+<p>range可以对slice或者map进行迭代循环</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+func main() {
+    for i, v := range pow {
+        fmt.Printf(&quot;2**%d = %d\n&quot;, i, v)
+    }
+}
+</code></pre>
+
+<h3 id="exercise-slices-go:69277b731da08b89fa256107618093a3">exercise-slices.go</h3>
+
+<pre><code>package main
+
+import &quot;golang.org/x/tour/pic&quot;
+
+func Pic(dx, dy int) [][]uint8 {
+    pic := make([][]uint8, dy);
+    for y := range pic {
+        pic[y] = make([]uint8, dx)
+        for x := range pic[y] {
+            pic[y][x] = uint8((x+y)/2)
+        }
+    }
+    return pic
+}
+
+func main() {
+    pic.Show(Pic)
+}
+</code></pre>
+
+<h3 id="map:69277b731da08b89fa256107618093a3">map</h3>
+
+<p>map在使用前必须用<code>make</code>来创建.</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+type Vertex struct {
+    Lat, Long float64
+}
+
+var m map[string]Vertex
+
+func main() {
+    m = make(map[string]Vertex)
+    m[&quot;Bell Labs&quot;] = Vertex{
+        40.68433, -74.39967,
+    }
+    fmt.Println(m[&quot;Bell Labs&quot;])
+}
+</code></pre>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+type Vertex struct {
+    Lat, Long float64
+}
+
+var m = map[string]Vertex{
+    &quot;Bell Labs&quot;: Vertex{
+        40.68433, -74.39967,
+    },
+    &quot;Google&quot;: Vertex{
+        37.42202, -122.08408,
+    },
+}
+
+func main() {
+    fmt.Println(m)
+}
+</code></pre>
+
+<p>插入或修改一个元素：<code>m[key] = elem</code></p>
+
+<p>获取元素：<code>elem = m[key]</code></p>
+
+<p>删除元素：<code>delete(m, key)</code></p>
+
+<p>通过双赋值检查某个键是否存在：<code>elem, ok = m[key]</code>
+存在ok为true</p>
+
+<h3 id="exercise-map-go:69277b731da08b89fa256107618093a3">exercise-map.go</h3>
+
+<pre><code>package main
+
+import (
+    &quot;code.google.com/p/go-tour/wc&quot;
+    &quot;strings&quot;
+)
+
+func WordCount(s string) map[string]int {
+    word_list := strings.Fields(s)
+    m := make(map[string]int)
+    for _, value := range word_list {
+        m[value] ++
+    }
+    return m
+}
+
+func main() {
+    wc.Test(WordCount)
+}
+</code></pre>
+
+<h3 id="func-value:69277b731da08b89fa256107618093a3">func value</h3>
+
+<p>函数也可以当做值赋给变量</p>
+
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;math&quot;
+)
+
+func main() {
+    hypot := func(x, y float64) float64 {
+        return math.Sqrt(x*x + y*y)
+    }
+
+    fmt.Println(hypot(3, 4))
+}
+
+</code></pre>
+
+<h3 id="闭包:69277b731da08b89fa256107618093a3">闭包</h3>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+func adder() func(int) int {
+    sum := 0
+    return func(x int) int {
+        sum += x
+        return sum
+    }
+}
+
+func main() {
+    pos, neg := adder(), adder()
+    for i := 0; i &lt; 10; i++ {
+        fmt.Println(
+            pos(i),
+            neg(-2*i),
+        )
+    }
+}
+</code></pre>
+
+<p>用闭包输出斐波那契数列</p>
+
+<pre><code>package main
+
+import &quot;fmt&quot;
+
+// fibonacci 函数会返回一个返回 int 的函数。
+func fibonacci() func() int {
+    a, b := 0, 1
+    return func() int {
+        a = a + b
+        a, b = b, a
+        return a
+    }
+}
+
+func main() {
+    f := fibonacci()
+    for i := 0; i &lt; 10; i++ {
+        fmt.Println(f())
+    }
+}
+
+</code></pre>
+
+    </section>
+
+    <footer>
+      <address>
+        
+        <img src="http://www.gravatar.com/avatar/da64325ae71b7c245a894c6862ed9046.png" />
+        
+        <p>
+          
+          Written by <strong><a rel="author" href="https://weibo.com/moonsn1994" title="@moonsn1994 on Weibo" target="_blank">moonsn1994</a></strong><br>
+          
+          <span class="muted">what is biography?</span>
+        </p>
+      </address>
+    </footer>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav>
+      <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
+      <a href="#">About</a> 
+    </nav>
+
+    <nav class="social">
+      
+
+
+<a href="https://github.com/moonsn" title="@moonsn on GitHub" target="_blank"><i class="fa fa-github-square"></i></a>
+
+
+
+<a href="http://instagram.com/moonsn1994" title="@moonsn1994 on Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+
+
+<a href="http://moonsn.com/index.xml" title="RSS Feed" target="_blank">
+  <i class="fa fa-rss"></i>
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://moonsn.com/js/main.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  $(document).ready(function() {
+  
+  $('p:has(img)').css('text-align', 'center');
+  $('iframe').css('style', 'display: block; margin: 0px auto;');
+  });
+</script>
+
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+
+</html>
+
