@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cs on moonsn&#39;s profile</title>
+    <link>http://moonsn.github.io/tags/cs/</link>
+    <description>Recent content in Cs on moonsn&#39;s profile</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 20 Oct 2015 17:55:24 +0800</lastBuildDate>
+    <atom:link href="http://moonsn.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python之socket</title>
+      <link>http://moonsn.github.io/post/pythonsocket/</link>
+      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
+      
+      <guid>http://moonsn.github.io/post/pythonsocket/</guid>
+      <description>
+
+&lt;p&gt;cs模式中,服务器需要完成以下任务&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;创建socket()&lt;/li&gt;
+&lt;li&gt;绑定bind()&lt;/li&gt;
+&lt;li&gt;监听listen()&lt;/li&gt;
+&lt;li&gt;接受accept()&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;而客户端要完成&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;创建socket()&lt;/li&gt;
+&lt;li&gt;连接connet()&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;当应用进程发出socket系统调用时，操作系统会在自己的&lt;code&gt;套接字描述符表&lt;/code&gt;中添加一个&lt;code&gt;套接字描述符&lt;/code&gt;,这个&lt;code&gt;套接字描述符&lt;/code&gt;指向一个套接字&lt;/p&gt;
+
+&lt;p&gt;在套接字的数据结构中有许多参数需要填写&lt;/p&gt;
+
+&lt;h2 id=&#34;创建socket:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;创建socket&lt;/h2&gt;
+
+&lt;p&gt;刚刚创建一个新的套接字的时候，要指定&lt;code&gt;协议族&lt;/code&gt;和&lt;code&gt;服务类型&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;下面用python创建一个socket&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import socket
+# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型
+# (SOCK_STREAM，表示使用流式服务，也就是TCP服务)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;绑定:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;绑定&lt;/h2&gt;
+
+&lt;p&gt;当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 注意bind()参数是个二元的tuple,(IP地址, 端口)
+# python中可以用socket.gethostname()得到本地地址
+# 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上
+# 为空则默认为都可以连接
+s.bind((&#39;&#39;,5000))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;监听:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;监听&lt;/h2&gt;
+
+&lt;p&gt;接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 1 表示  the maximum number of queued connections 
+s.listen(1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;接收:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;接收&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;# conn 是一个socket连接,addr 是地址
+conn, addr = s.accept()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;example:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;example&lt;/h2&gt;
+
+&lt;p&gt;接下来上官网的例子&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Echo server program
+import socket
+
+HOST = &#39;&#39;                 # Symbolic name meaning all available interfaces
+PORT = 50007              # Arbitrary non-privileged port
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))
+s.listen(1)
+conn, addr = s.accept()
+print &#39;Connected by&#39;, addr
+while 1:
+    data = conn.recv(1024)
+    if not data: break
+    conn.sendall(data)
+conn.close()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# Echo client program
+import socket
+
+HOST = &#39;daring.cwi.nl&#39;    # The remote host
+PORT = 50007              # The same port as used by the server
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((HOST, PORT))
+s.sendall(&#39;Hello, world&#39;)
+data = s.recv(1024)
+s.close()
+print &#39;Received&#39;, repr(data)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
