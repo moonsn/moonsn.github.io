@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on moonsn&#39;s profile</title>
-    <link>http://moonsn.github.io/tags/c/</link>
+    <link>http://moonsn.com/tags/c/</link>
     <description>Recent content in C on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 20 Oct 2015 16:38:57 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>std::move()将左值转化为右值</title>
-      <link>http://moonsn.github.io/post/welcome/</link>
+      <link>http://moonsn.com/post/welcome/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
       
-      <guid>http://moonsn.github.io/post/welcome/</guid>
+      <guid>http://moonsn.com/post/welcome/</guid>
       <description>
 
 &lt;p&gt;this is summary?&lt;/p&gt;
