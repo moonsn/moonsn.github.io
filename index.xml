@@ -1242,12 +1242,30 @@ func main() {
     </item>
     
     <item>
+      <title>汲取知识中...</title>
+      <link>http://moonsn.com/books/</link>
+      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
+      
+      <guid>http://moonsn.com/books/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;[X] 《C++ Primer》&lt;/li&gt;
+&lt;li&gt;[D] 《SGI STL 源码解析》&lt;/li&gt;
+&lt;li&gt;[X] 《数学之美》&lt;/li&gt;
+&lt;li&gt;[X] 《Linux C编程》&lt;/li&gt;
+&lt;li&gt;[X] 《Pro git》&lt;/li&gt;
+&lt;li&gt;[X] 《人月神话》&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>about</title>
       <link>http://moonsn.com/about/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
       <guid>http://moonsn.com/about/</guid>
-      <description></description>
+      <description>&lt;p&gt;哈哈哈，上当啦！账号都在博客里呢~&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -1348,6 +1366,23 @@ data = s.recv(1024)
 s.close()
 print &#39;Received&#39;, repr(data)
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>都是好东西！！</title>
+      <link>http://moonsn.com/wiki/</link>
+      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
+      
+      <guid>http://moonsn.com/wiki/</guid>
+      <description>
+
+&lt;h3 id=&#34;工具类:9e0d3ed7cde91f118a8d7d1fecd20dce&#34;&gt;工具类&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;vim &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;配置齐全的vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sublime text&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
