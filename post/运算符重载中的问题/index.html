@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" property="og:description" content="我们知道c&#43;&#43;的运算符是可以重载的(个别除外)。 class A{}; A&amp; operator,(A&amp;, A&amp;); //重载了逗号运算符 bool operator&amp;&amp;(A&amp;, A&amp;); //重载了&amp;&amp;运算符 A b1, b2; if (b1&amp;&amp;b2) b1, b2; // if(operator&amp;&amp;(b1, b2)) operator,(b1,b2); 可以看到，重载了运算符之后，对运算符的使用被替换为相应的函数调用形式。因此，旧有的运算符的执行顺序不再适用，取而代之的是函数参数的压栈顺序。 短路语义只是一个方面，更重要的在于压栈顺序。鉴于执行效率和旧代码兼容性等细节问题，C&#43;&#43;标准在压栈顺序上给编译器的开发者留有很大自主性。标准的说辞是，编译器可能以任何它觉得方便的顺序将参数压栈，从左到右，从右到左，甚至从中间到两边，在这一点上我们不能安全地做任何假设。在上面的例子中，编译器生成的代码可能先计算b1再计算b2，也可能是相反的顺序。 少用为妙~~~">
+
+ 
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="运算符重载中的问题"/>
+<meta property="og:site_name" content="moonsn&#39;s profile"/>
+<meta property="og:url" content="http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
+<meta property="article:published_time" content="2015-11-08"/>
+<meta property="article:modified_time" content="2015-11-08"/>
+
+
+  <meta property="article:tag" content="c&#43;&#43;">
+  
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="运算符重载中的问题">
+<meta name="twitter:description" content="我们知道c&#43;&#43;的运算符是可以重载的(个别除外)。 class A{}; A&amp; operator,(A&amp;, A&amp;); //重载了逗号运算符 bool operator&amp;&amp;(A&amp;, A&amp;); //重载了&amp;&amp;运算符 A b1, b2; if (b1&amp;&amp;b2) b1, b2; // if(operator&amp;&amp;(b1, b2)) operator,(b1,b2); 可以看到，重载了运算符之后，对运算符的使用被替换为相应的函数调用形式。因此，旧有的运算符的执行顺序不再适用，取而代之的是函数参数的压栈顺序。 短路语义只是一个方面，更重要的在于压栈顺序。鉴于执行效率和旧代码兼容性等细节问题，C&#43;&#43;标准在压栈顺序上给编译器的开发者留有很大自主性。标准的说辞是，编译器可能以任何它觉得方便的顺序将参数压栈，从左到右，从右到左，甚至从中间到两边，在这一点上我们不能安全地做任何假设。在上面的例子中，编译器生成的代码可能先计算b1再计算b2，也可能是相反的顺序。 少用为妙~~~">
+
+
+
+  <title>
+      
+        运算符重载中的问题 &middot; moonsn&#39;s profile
+      
+  </title>
+
+  <link rel="canonical" href="http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
+  
+  <link rel="shortcut icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
+  
+  <link rel="alternate" title="RSS" href="http://moonsn.com/index.xml" type="application/rss+xml">
+
+  <link rel="stylesheet" href="http://moonsn.com//css/main.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+
+
+</head>
+
+<body>
+<section class="site-nav">
+  <header>
+    <nav id="navigation">
+      <a class="brand" href="http://moonsn.com/">
+        
+          moonsn&#39;s profile
+        
+      </a>
+      
+      <a href="http://moonsn.com/about/">About</a>
+      
+      <a href="http://moonsn.com/books/">Books</a>
+      
+      <a href="http://moonsn.com/wiki/">全是干货</a>
+      
+    </nav>
+  </header>
+</section>
+
+
+
+<article>
+  <div class="container">
+    <header>
+      <h1 class="title">运算符重载中的问题</h1>
+      <div class="meta">
+        <time pubdate datetime="2015-11-08" title="2015-11-08">2015-11-08</time>
+
+        <ul class="article-tags">
+          
+          <li>
+              <a href="http://moonsn.com/tags/c">
+                  <i class="fa fa-tags"></i>
+                  c&#43;&#43;
+              </a>
+          </li>
+          
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <p>我们知道c++的运算符是可以重载的(个别除外)。</p>
+
+<pre><code class="language-c++">class A{};
+A&amp; operator,(A&amp;, A&amp;); //重载了逗号运算符
+bool operator&amp;&amp;(A&amp;, A&amp;); //重载了&amp;&amp;运算符
+
+A b1, b2;
+
+if (b1&amp;&amp;b2) b1, b2; // if(operator&amp;&amp;(b1, b2)) operator,(b1,b2);
+</code></pre>
+
+<p>可以看到，重载了运算符之后，对运算符的使用被替换为相应的函数调用形式。因此，旧有的运算符的执行顺序不再适用，取而代之的是函数参数的压栈顺序。</p>
+
+<p>短路语义只是一个方面，更重要的在于压栈顺序。鉴于执行效率和旧代码兼容性等细节问题，C++标准在压栈顺序上给编译器的开发者留有很大自主性。标准的说辞是，编译器可能以任何它觉得方便的顺序将参数压栈，从左到右，从右到左，甚至从中间到两边，在这一点上我们不能安全地做任何假设。在上面的例子中，编译器生成的代码可能先计算b1再计算b2，也可能是相反的顺序。</p>
+
+<blockquote>
+<p>少用为妙~~~</p>
+</blockquote>
+
+    </section>
+
+    <footer>
+      <address>
+        
+        <img src="http://www.gravatar.com/avatar/da64325ae71b7c245a894c6862ed9046.png" />
+        
+        <p>
+          
+          Written by <strong><a rel="author" href="https://weibo.com/moonsn1994" title="@moonsn1994 on Weibo" target="_blank">moonsn1994</a></strong><br>
+          
+          <span class="muted">what is biography?</span>
+        </p>
+      </address>
+    </footer>
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav>
+      <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
+      <a href="http://moonsn.com/about/">About</a>   &middot; 
+      <a href="http://moonsn.com/books/">Books</a>   &middot; 
+      <a href="http://moonsn.com/wiki/">全是干货</a> 
+    </nav>
+
+    <nav class="social">
+      
+
+
+<a href="https://github.com/moonsn" title="@moonsn on GitHub" target="_blank"><i class="fa fa-github-square"></i></a>
+
+
+
+<a href="http://instagram.com/moonsn1994" title="@moonsn1994 on Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+
+
+<a href="http://moonsn.com/index.xml" title="RSS Feed" target="_blank">
+  <i class="fa fa-rss"></i>
+</a>
+
+    </nav>
+
+  </div>
+</footer>
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://moonsn.com/js/main.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script>
+  $(document).ready(function() {
+  
+  $('p:has(img)').css('text-align', 'center');
+  $('iframe').css('style', 'display: block; margin: 0px auto;');
+  });
+</script>
+
+
+</body>
+
+</html>
+

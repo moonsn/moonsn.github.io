@@ -36,7 +36,9 @@ html {
   -ms-text-size-adjust: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0; 
+  font-family: "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+}
 
 a:focus {
   outline: thin dotted; }
@@ -182,7 +184,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -346,7 +348,11 @@ cite {
   font-style: normal; }
 
 .text-muted {
-  color: #999999; }
+  color: #999999; 
+  font-size: 1em;
+  font-style: italic;
+}
+
 
 .text-primary {
   color: #428bca; }
@@ -2018,7 +2024,7 @@ body {
   margin: 0;
   border: 0;
   padding: 80px 0 0;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "sans-serif";
+  font-family: "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
   color: #555;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
@@ -2039,12 +2045,23 @@ h1, h2 {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", "sans-serif"; }
 
 a {
-  color: #2077b2;
+  margin: 0px 5px 0px 5px;;
+  cursor: auto;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 100%;
   text-decoration: none;
-  transition: all 0.2s ease; }
+  vertical-align: baseline;
+  padding: 0;
+  background: 0 0;
+  color: #41b7d8;
+  border-bottom: .08em solid rgba(0,0,0,.1);
+  padding-bottom: .08em
+}
   a:hover {
-    color: black;
-    text-decoration: none; }
+    color: #41b7d8;
+    text-decoration: none; 
+    border-bottom: .08em solid #41b7d8;
+  }
 
 .container {
   max-width: 900px;
@@ -2180,7 +2197,10 @@ a {
         opacity: 0.9; }
 
 .muted {
-  color: #848484; }
+  color: #848484; 
+  font-size: 1em;
+  font-style: italic;
+  }
 
 .btn {
   color: #fff;
@@ -2201,8 +2221,7 @@ a {
   text-rendering: optimizeLegibility;
   border-radius: 2px;
   vertical-align: middle;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border-radius: 2px;
+  font-family: "Microsoft Yahei","Hiragino Sans GB",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
   background: #4dab7d;
   border: 2px solid #4dab7d;
   text-transform: uppercase;
@@ -2352,14 +2371,15 @@ article {
       margin-bottom: 0.5em; }
   article blockquote {
     border: 0;
-    font-size: 24px;
+    font-size: 1em;
     margin: 1.2em -4em 1.2em 0;
     padding: 0; }
     article blockquote p {
-      font-size: 30px;
+      font-size: 1em;
       line-height: 1.1;
-      color: #2077b2;
-      font-weight: 600; }
+      color: #A9CCE3;
+      font-style: italic;
+}
   article h1 {
     font-weight: 600;
     font-size: 2.1em;
@@ -2432,7 +2452,7 @@ article {
       color: #222; }
   article code {
     border-radius: 2px;
-    color: #222;
+    color: #E74C3C;
     background: whitesmoke; }
   article .rounded img {
     border-radius: 6px; }

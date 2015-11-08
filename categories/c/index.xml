@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/c/</link>
+    <link>http://moonsn.com/categories/c/</link>
     <description>Recent content in C on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 08 Nov 2015 15:53:52 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>运算符重载中的问题</title>
@@ -33,49 +33,6 @@ if (b1&amp;amp;&amp;amp;b2) b1, b2; // if(operator&amp;amp;&amp;amp;(b1, b2)) op
 &lt;blockquote&gt;
 &lt;p&gt;少用为妙~~~&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>std::move()将左值转化为右值</title>
-      <link>http://moonsn.com/post/welcome/</link>
-      <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
-      
-      <guid>http://moonsn.com/post/welcome/</guid>
-      <description>
-
-&lt;p&gt;this is summary?&lt;/p&gt;
-
-&lt;h2 id=&#34;header:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;header&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;std::move()功能强大啊&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void ProcessValue(int&amp;amp; i) { 
-		std::cout &amp;lt;&amp;lt; &amp;quot;LValue processed: &amp;quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 
-} 
-
-void ProcessValue(int&amp;amp;&amp;amp; i) { 
-		std::cout &amp;lt;&amp;lt; &amp;quot;RValue processed: &amp;quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 
-} 
-
-int main() { 
-  		int a = 0; 
-  		ProcessValue(a); 
-  		ProcessValue(std::move(a)); 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看看在swap的时候，省了3次copy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;template &amp;lt;class T&amp;gt; swap(T&amp;amp; a, T&amp;amp; b) 
-    { 
-        T tmp(std::move(a)); // move a to tmp 
-        a = std::move(b);    // move b to a 
-        b = std::move(tmp);  // move tmp to b 
- }
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -8,31 +8,34 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" property="og:description" content="moonsn&#39;s profile">
+<meta name="description" property="og:description" content="昨天这做了轮播，网速跟不上的话，会很难看。。 今天发现这个小技巧~记上！ 图片预加载 $.preloadImages = function () { for (var i = 0; i &lt; arguments.length; i&#43;&#43;) { $(&#39;&lt;img&gt;&#39;).attr(&#39;src&#39;, arguments[i]); } }; $.preloadImages(&#39;img/hover-on.png&#39;, &#39;img/hover-off.png&#39;);">
 
  
 <meta property="og:type" content="article"/>
-<meta property="og:title" content="Categories"/>
+<meta property="og:title" content="jQuery Tips"/>
 <meta property="og:site_name" content="moonsn&#39;s profile"/>
-<meta property="og:url" content="http://moonsn.com/categories/">
-<meta property="article:published_time" content="0001-01-01"/>
-<meta property="article:modified_time" content="0001-01-01"/>
+<meta property="og:url" content="http://moonsn.com/post/jquery_tips/">
+<meta property="article:published_time" content="2015-11-08"/>
+<meta property="article:modified_time" content="2015-11-08"/>
 
+
+  <meta property="article:tag" content="jquery">
+  
 
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="moonsn&#39;s profile">
+<meta name="twitter:title" content="jQuery Tips">
+<meta name="twitter:description" content="昨天这做了轮播，网速跟不上的话，会很难看。。 今天发现这个小技巧~记上！ 图片预加载 $.preloadImages = function () { for (var i = 0; i &lt; arguments.length; i&#43;&#43;) { $(&#39;&lt;img&gt;&#39;).attr(&#39;src&#39;, arguments[i]); } }; $.preloadImages(&#39;img/hover-on.png&#39;, &#39;img/hover-off.png&#39;);">
 
 
 
   <title>
       
-        Categories &middot; moonsn&#39;s profile
+        jQuery Tips &middot; moonsn&#39;s profile
       
   </title>
 
-  <link rel="canonical" href="http://moonsn.com/categories/">
+  <link rel="canonical" href="http://moonsn.com/post/jquery_tips/">
   
   <link rel="shortcut icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
   <link rel="icon" href="http://moonsn.com/favicon.ico" type="image/x-icon">
@@ -67,26 +70,57 @@
 </section>
 
 
-<article class="container">
-   <h1 id="title">Categories</h1>
-   
-    
-    <h2><a href="golang"> golang </a> 4 </h2>
-    
-    <h2><a href="hugo"> hugo </a> 2 </h2>
-    
-    <h2><a href="%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"> 编程语言 </a> 1 </h2>
-    
-    <h2><a href="%E7%94%9F%E6%B4%BB"> 生活 </a> 1 </h2>
-    
-    <h2><a href="python"> python </a> 1 </h2>
-    
-    <h2><a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"> 计算机网络 </a> 1 </h2>
-    
-    <h2><a href="c"> c </a> 1 </h2>
-    
-    <h2><a href="front-end"> front-end </a> 1 </h2>
-    
+
+<article>
+  <div class="container">
+    <header>
+      <h1 class="title">jQuery Tips</h1>
+      <div class="meta">
+        <time pubdate datetime="2015-11-08" title="2015-11-08">2015-11-08</time>
+
+        <ul class="article-tags">
+          
+          <li>
+              <a href="http://moonsn.com/tags/jquery">
+                  <i class="fa fa-tags"></i>
+                  jquery
+              </a>
+          </li>
+          
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <p>昨天这做了轮播，网速跟不上的话，会很难看。。
+今天发现这个小技巧~记上！</p>
+
+<p>图片预加载</p>
+
+<pre><code>$.preloadImages = function () {
+  for (var i = 0; i &lt; arguments.length; i++) {
+    $('&lt;img&gt;').attr('src', arguments[i]);
+  }
+};
+
+$.preloadImages('img/hover-on.png', 'img/hover-off.png');
+</code></pre>
+
+    </section>
+
+    <footer>
+      <address>
+        
+        <img src="http://www.gravatar.com/avatar/da64325ae71b7c245a894c6862ed9046.png" />
+        
+        <p>
+          
+          Written by <strong><a rel="author" href="https://weibo.com/moonsn1994" title="@moonsn1994 on Weibo" target="_blank">moonsn1994</a></strong><br>
+          
+          <span class="muted">what is biography?</span>
+        </p>
+      </address>
+    </footer>
   </div>
 </article>
 
