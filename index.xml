@@ -1474,6 +1474,10 @@ print &#39;Received&#39;, repr(data)
 &lt;ul&gt;
 &lt;li&gt;vim &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;配置齐全的vim&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;sublime text&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.processon.com/&#34;&gt;ProcessOn&lt;/a&gt; 在线制图工具，流程图，ER图轻松搞定.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt; GitHub开源编辑器，插件管理得比较好.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zybuluo.com/mdeditor&#34;&gt;作业部落&lt;/a&gt; 在线markdown编辑器，功能不止如此.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; Go实现的静态博客生成器，本博客就是这个生成的。&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
