@@ -6,8 +6,49 @@
     <description>Recent content in Posts on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 08 Nov 2015 15:53:52 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2015 13:43:41 +0800</lastBuildDate>
     <atom:link href="http://moonsn.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>producer consumer problem implement with Go</title>
+      <link>http://moonsn.com/post/producer-consumer/</link>
+      <pubDate>Tue, 01 Dec 2015 13:43:41 +0800</pubDate>
+      
+      <guid>http://moonsn.com/post/producer-consumer/</guid>
+      <description>&lt;p&gt;&lt;code&gt;生产者消费者问题&lt;/code&gt;(&lt;a href=&#34;https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem&#34;&gt;Producer–consumer problem&lt;/a&gt;)是一个典型的并发问题，生产者产生数据，同时消费者也在&lt;code&gt;消费&lt;/code&gt;数据。&lt;/p&gt;
+
+&lt;p&gt;Go的特点就是并发性，所以实现这个问题对go来说很轻松。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+import &amp;quot;fmt&amp;quot;
+
+var done = make(chan bool)
+var products = make(chan int)
+
+func producer() {
+    for i := 0; i &amp;lt; 10; i++ {
+        products &amp;lt;- i
+        fmt.Println(i, &amp;quot; produced!&amp;quot;)
+    }
+    done &amp;lt;- true
+}
+
+func consumer() {
+    for {
+        product := &amp;lt;- products
+        fmt.Println(product, &amp;quot; consumed!&amp;quot;)
+    }
+}
+
+func main() {
+    go producer();
+    go consumer();
+    &amp;lt;- done
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>运算符重载中的问题</title>

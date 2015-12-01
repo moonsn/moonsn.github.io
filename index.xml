@@ -6,8 +6,49 @@
     <description>Recent content on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 08 Nov 2015 15:53:52 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2015 13:43:41 +0800</lastBuildDate>
     <atom:link href="http://moonsn.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>producer consumer problem implement with Go</title>
+      <link>http://moonsn.com/post/producer-consumer/</link>
+      <pubDate>Tue, 01 Dec 2015 13:43:41 +0800</pubDate>
+      
+      <guid>http://moonsn.com/post/producer-consumer/</guid>
+      <description>&lt;p&gt;&lt;code&gt;生产者消费者问题&lt;/code&gt;(&lt;a href=&#34;https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem&#34;&gt;Producer–consumer problem&lt;/a&gt;)是一个典型的并发问题，生产者产生数据，同时消费者也在&lt;code&gt;消费&lt;/code&gt;数据。&lt;/p&gt;
+
+&lt;p&gt;Go的特点就是并发性，所以实现这个问题对go来说很轻松。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+import &amp;quot;fmt&amp;quot;
+
+var done = make(chan bool)
+var products = make(chan int)
+
+func producer() {
+    for i := 0; i &amp;lt; 10; i++ {
+        products &amp;lt;- i
+        fmt.Println(i, &amp;quot; produced!&amp;quot;)
+    }
+    done &amp;lt;- true
+}
+
+func consumer() {
+    for {
+        product := &amp;lt;- products
+        fmt.Println(product, &amp;quot; consumed!&amp;quot;)
+    }
+}
+
+func main() {
+    go producer();
+    go consumer();
+    &amp;lt;- done
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>运算符重载中的问题</title>
@@ -1308,11 +1349,30 @@ func main() {
       <guid>http://moonsn.com/books/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;[X] 《C++ Primer》&lt;/li&gt;
-&lt;li&gt;[D] 《SGI STL 源码解析》&lt;/li&gt;
+&lt;li&gt;[DOING] 《SGI STL 源码解析》&lt;/li&gt;
 &lt;li&gt;[X] 《数学之美》&lt;/li&gt;
 &lt;li&gt;[X] 《Linux C编程》&lt;/li&gt;
 &lt;li&gt;[X] 《Pro git》&lt;/li&gt;
 &lt;li&gt;[X] 《人月神话》&lt;/li&gt;
+&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;UML Distilled&lt;/em&gt;&lt;/strong&gt;》 by Martin Fowler(2nd edition, Addison-Wesley,2000)&lt;/li&gt;
+&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;Effective C++&lt;/em&gt;&lt;/strong&gt;》 by Addison-Wesley,1998&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>都是好东西！！</title>
+      <link>http://moonsn.com/wiki/</link>
+      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
+      
+      <guid>http://moonsn.com/wiki/</guid>
+      <description>
+
+&lt;h3 id=&#34;工具类:9e0d3ed7cde91f118a8d7d1fecd20dce&#34;&gt;工具类&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;vim &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;配置齐全的vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sublime text&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -1414,66 +1474,6 @@ s.sendall(&#39;Hello, world&#39;)
 data = s.recv(1024)
 s.close()
 print &#39;Received&#39;, repr(data)
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>都是好东西！！</title>
-      <link>http://moonsn.com/wiki/</link>
-      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
-      
-      <guid>http://moonsn.com/wiki/</guid>
-      <description>
-
-&lt;h3 id=&#34;工具类:9e0d3ed7cde91f118a8d7d1fecd20dce&#34;&gt;工具类&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;vim &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;配置齐全的vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;sublime text&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>std::move()将左值转化为右值</title>
-      <link>http://moonsn.com/post/welcome/</link>
-      <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
-      
-      <guid>http://moonsn.com/post/welcome/</guid>
-      <description>
-
-&lt;p&gt;this is summary?&lt;/p&gt;
-
-&lt;h2 id=&#34;header:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;header&lt;/h2&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;std::move()功能强大啊&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void ProcessValue(int&amp;amp; i) { 
-		std::cout &amp;lt;&amp;lt; &amp;quot;LValue processed: &amp;quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 
-} 
-
-void ProcessValue(int&amp;amp;&amp;amp; i) { 
-		std::cout &amp;lt;&amp;lt; &amp;quot;RValue processed: &amp;quot; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 
-} 
-
-int main() { 
-  		int a = 0; 
-  		ProcessValue(a); 
-  		ProcessValue(std::move(a)); 
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看看在swap的时候，省了3次copy&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;template &amp;lt;class T&amp;gt; swap(T&amp;amp; a, T&amp;amp; b) 
-    { 
-        T tmp(std::move(a)); // move a to tmp 
-        a = std::move(b);    // move b to a 
-        b = std::move(tmp);  // move tmp to b 
- }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
