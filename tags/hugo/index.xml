@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/hugo/</link>
+    <link>http://localhost:1313/tags/hugo/</link>
     <description>Recent content in Hugo on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hugo生成静态文件</title>
-      <link>http://moonsn.com/post/deploymenthugo/</link>
+      <link>http://localhost:1313/post/deploymenthugo/</link>
       <pubDate>Wed, 21 Oct 2015 19:54:25 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/deploymenthugo/</guid>
+      <guid>http://localhost:1313/post/deploymenthugo/</guid>
       <description>&lt;pre&gt;&lt;code&gt;$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -22,10 +22,10 @@
     
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://moonsn.com/post/hugo-single/</link>
+      <link>http://localhost:1313/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/hugo-single/</guid>
+      <guid>http://localhost:1313/post/hugo-single/</guid>
       <description>
 
 &lt;p&gt;single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。&lt;/p&gt;
@@ -167,10 +167,10 @@
     
     <item>
       <title>选择Hugo作为博客生成器</title>
-      <link>http://moonsn.com/post/first/</link>
+      <link>http://localhost:1313/post/first/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:50 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/first/</guid>
+      <guid>http://localhost:1313/post/first/</guid>
       <description>&lt;p&gt;最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。
 一直在寻找一个简单易用的博客，WordPress太过臃肿了。&lt;/p&gt;
 
