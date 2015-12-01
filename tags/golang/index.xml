@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on moonsn&#39;s profile</title>
-    <link>http://localhost:1313/tags/golang/</link>
+    <link>http://moonsn.com/tags/golang/</link>
     <description>Recent content in Golang on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 01 Dec 2015 13:43:41 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>producer consumer problem implement with Go</title>
-      <link>http://localhost:1313/post/producer-consumer/</link>
+      <link>http://moonsn.com/post/producer-consumer/</link>
       <pubDate>Tue, 01 Dec 2015 13:43:41 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/producer-consumer/</guid>
+      <guid>http://moonsn.com/post/producer-consumer/</guid>
       <description>&lt;p&gt;&lt;code&gt;生产者消费者问题&lt;/code&gt;(&lt;a href=&#34;https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem&#34;&gt;Producer–consumer problem&lt;/a&gt;)是一个典型的并发问题，生产者产生数据，同时消费者也在&lt;code&gt;消费&lt;/code&gt;数据。&lt;/p&gt;
 
 &lt;p&gt;Go的特点就是并发性，所以实现这个问题对go来说很轻松。&lt;/p&gt;
@@ -52,10 +52,10 @@ func main() {
     
     <item>
       <title>Golang中的方法与接口</title>
-      <link>http://localhost:1313/post/golang_3/</link>
+      <link>http://moonsn.com/post/golang_3/</link>
       <pubDate>Wed, 21 Oct 2015 19:46:01 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/golang_3/</guid>
+      <guid>http://moonsn.com/post/golang_3/</guid>
       <description>
 
 &lt;h3 id=&#34;方法:1fe650016e84e1375349ba764bbab8d3&#34;&gt;方法&lt;/h3&gt;
@@ -390,10 +390,10 @@ func main() {
     
     <item>
       <title>Golang中的map和闭包</title>
-      <link>http://localhost:1313/post/golang_2/</link>
+      <link>http://moonsn.com/post/golang_2/</link>
       <pubDate>Wed, 21 Oct 2015 14:56:57 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/golang_2/</guid>
+      <guid>http://moonsn.com/post/golang_2/</guid>
       <description>
 
 &lt;h3 id=&#34;range:69277b731da08b89fa256107618093a3&#34;&gt;Range&lt;/h3&gt;
@@ -587,10 +587,10 @@ func main() {
     
     <item>
       <title>Golang中的Slice</title>
-      <link>http://localhost:1313/post/golangslice/</link>
+      <link>http://moonsn.com/post/golangslice/</link>
       <pubDate>Wed, 21 Oct 2015 14:17:10 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/golangslice/</guid>
+      <guid>http://moonsn.com/post/golangslice/</guid>
       <description>
 
 &lt;h3 id=&#34;what:90cfd4505499368a99e1f321bbb29b12&#34;&gt;What?&lt;/h3&gt;
@@ -652,10 +652,10 @@ func main() {
     
     <item>
       <title>Golang的结构，基本类型及语法</title>
-      <link>http://localhost:1313/post/aboutgolang/</link>
+      <link>http://moonsn.com/post/aboutgolang/</link>
       <pubDate>Wed, 21 Oct 2015 11:00:08 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/aboutgolang/</guid>
+      <guid>http://moonsn.com/post/aboutgolang/</guid>
       <description>
 
 &lt;p&gt;golang需要指定一个工作目录&lt;/p&gt;
@@ -961,10 +961,10 @@ func main() {
     
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://localhost:1313/post/hugo-single/</link>
+      <link>http://moonsn.com/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/hugo-single/</guid>
+      <guid>http://moonsn.com/post/hugo-single/</guid>
       <description>
 
 &lt;p&gt;single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。&lt;/p&gt;
