@@ -6,8 +6,103 @@
     <description>Recent content on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 01 Dec 2015 13:43:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate>
     <atom:link href="http://moonsn.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Unix I/O</title>
+      <link>http://moonsn.com/post/stdio/</link>
+      <pubDate>Tue, 15 Dec 2015 13:43:41 +0800</pubDate>
+      
+      <guid>http://moonsn.com/post/stdio/</guid>
+      <description>
+
+&lt;p&gt;使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题&lt;/p&gt;
+
+&lt;h2 id=&#34;缓冲:aeb762551f39a1799063c0291b6b6e61&#34;&gt;缓冲&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;全缓冲&lt;/li&gt;
+&lt;li&gt;行缓冲&lt;/li&gt;
+&lt;li&gt;不带缓冲&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;int fflush(FILE *fp);//可以强制冲洗缓冲区
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;打开流:aeb762551f39a1799063c0291b6b6e61&#34;&gt;打开流&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;FILE *fopen(const char *restrict pathname, const char *restrict type);
+FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);
+FILE *fdopen(int fd, const char *type);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;int fclose(FILE *fp);//关闭流
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;读写流:aeb762551f39a1799063c0291b6b6e61&#34;&gt;读写流&lt;/h2&gt;
+
+&lt;h3 id=&#34;按字符:aeb762551f39a1799063c0291b6b6e61&#34;&gt;按字符&lt;/h3&gt;
+
+&lt;p&gt;读：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;int getc(FILE *fp);
+int fgetc(FILE *fp);
+int getchar(void); // 相当于getc(STDIN);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用&lt;code&gt;ferror&lt;/code&gt;或&lt;code&gt;feof&lt;/code&gt;;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+int main(){
+    int c;
+    while((c = getc(stdin)) != EOF) {
+        if (putc(c, stdout) == EOF) {
+            fprintf(stderr, &amp;quot;output error&amp;quot;);
+        }
+    }
+
+    if (ferror(stdin)) { //判断是EOF还是error
+        fprintf(stderr, &amp;quot;input error&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;写：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;int putc(int c, FILE *fp);
+int fputc(int c, FILE *fp);
+int putchar(int c);//相当于putc(c, stdout);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;按行:aeb762551f39a1799063c0291b6b6e61&#34;&gt;按行&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;char *fgets(char *restrict buf, int n, FILE *restrict fp);
+char *gets(char *buf); //不考虑缓冲区长度读，可能溢出
+char fputs(const char *restrict str, FILE *restrict fp);
+int puts(const char *str);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;二进制io:aeb762551f39a1799063c0291b6b6e61&#34;&gt;二进制IO&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;size_t fread(void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
+size_t fwrite(const void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;写一个结构到文件中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;struct {
+    short count;
+    long total;
+    char name[NAMESIZE];
+} item;
+
+if (fwirte(&amp;amp;item, sizeof(item), 1, fp) != 1) {
+    fprintf(stderr, &amp;quot;fwirte error&amp;quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>producer consumer problem implement with Go</title>
@@ -1332,25 +1427,6 @@ func main() {
     </item>
     
     <item>
-      <title>汲取知识中...</title>
-      <link>http://moonsn.com/books/</link>
-      <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
-      
-      <guid>http://moonsn.com/books/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;[X] 《C++ Primer》&lt;/li&gt;
-&lt;li&gt;[DOING] 《SGI STL 源码解析》&lt;/li&gt;
-&lt;li&gt;[X] 《数学之美》&lt;/li&gt;
-&lt;li&gt;[X] 《Linux C编程》&lt;/li&gt;
-&lt;li&gt;[X] 《Pro git》&lt;/li&gt;
-&lt;li&gt;[X] 《人月神话》&lt;/li&gt;
-&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;UML Distilled&lt;/em&gt;&lt;/strong&gt;》 by Martin Fowler(2nd edition, Addison-Wesley,2000)&lt;/li&gt;
-&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;Effective C++&lt;/em&gt;&lt;/strong&gt;》 by Addison-Wesley,1998&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>about</title>
       <link>http://moonsn.com/about/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
@@ -1462,22 +1538,20 @@ print &#39;Received&#39;, repr(data)
     </item>
     
     <item>
-      <title>都是好东西！！</title>
-      <link>http://moonsn.com/wiki/</link>
+      <title>汲取知识中...</title>
+      <link>http://moonsn.com/books/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/wiki/</guid>
-      <description>
-
-&lt;h3 id=&#34;工具类:9e0d3ed7cde91f118a8d7d1fecd20dce&#34;&gt;工具类&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;vim &lt;a href=&#34;http://vim.spf13.com/&#34;&gt;配置齐全的vim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;sublime text&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.processon.com/&#34;&gt;ProcessOn&lt;/a&gt; 在线制图工具，流程图，ER图轻松搞定.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt; GitHub开源编辑器，插件管理得比较好.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.zybuluo.com/mdeditor&#34;&gt;作业部落&lt;/a&gt; 在线markdown编辑器，功能不止如此.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;HUGO&lt;/a&gt; Go实现的静态博客生成器，本博客就是这个生成的。&lt;/li&gt;
+      <guid>http://moonsn.com/books/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;[X] 《C++ Primer》&lt;/li&gt;
+&lt;li&gt;[DOING] 《SGI STL 源码解析》&lt;/li&gt;
+&lt;li&gt;[X] 《数学之美》&lt;/li&gt;
+&lt;li&gt;[X] 《Linux C编程》&lt;/li&gt;
+&lt;li&gt;[X] 《Pro git》&lt;/li&gt;
+&lt;li&gt;[X] 《人月神话》&lt;/li&gt;
+&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;UML Distilled&lt;/em&gt;&lt;/strong&gt;》 by Martin Fowler(2nd edition, Addison-Wesley,2000)&lt;/li&gt;
+&lt;li&gt;[TODO] 《&lt;strong&gt;&lt;em&gt;Effective C++&lt;/em&gt;&lt;/strong&gt;》 by Addison-Wesley,1998&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

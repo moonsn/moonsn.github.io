@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/categories/c/</link>
-    <description>Recent content in C on moonsn&#39;s profile</description>
+    <title>Io on moonsn&#39;s profile</title>
+    <link>http://moonsn.com/tags/io/</link>
+    <description>Recent content in Io on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://moonsn.com/tags/io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Unix I/O</title>
@@ -101,33 +101,6 @@ if (fwirte(&amp;amp;item, sizeof(item), 1, fp) != 1) {
     fprintf(stderr, &amp;quot;fwirte error&amp;quot;);
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>运算符重载中的问题</title>
-      <link>http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Sun, 08 Nov 2015 15:53:52 +0800</pubDate>
-      
-      <guid>http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description>&lt;p&gt;我们知道c++的运算符是可以重载的(个别除外)。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class A{};
-A&amp;amp; operator,(A&amp;amp;, A&amp;amp;); //重载了逗号运算符
-bool operator&amp;amp;&amp;amp;(A&amp;amp;, A&amp;amp;); //重载了&amp;amp;&amp;amp;运算符
-
-A b1, b2;
-
-if (b1&amp;amp;&amp;amp;b2) b1, b2; // if(operator&amp;amp;&amp;amp;(b1, b2)) operator,(b1,b2);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;可以看到，重载了运算符之后，对运算符的使用被替换为相应的函数调用形式。因此，旧有的运算符的执行顺序不再适用，取而代之的是函数参数的压栈顺序。&lt;/p&gt;
-
-&lt;p&gt;短路语义只是一个方面，更重要的在于压栈顺序。鉴于执行效率和旧代码兼容性等细节问题，C++标准在压栈顺序上给编译器的开发者留有很大自主性。标准的说辞是，编译器可能以任何它觉得方便的顺序将参数压栈，从左到右，从右到左，甚至从中间到两边，在这一点上我们不能安全地做任何假设。在上面的例子中，编译器生成的代码可能先计算b1再计算b2，也可能是相反的顺序。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;少用为妙~~~&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
     </item>
     
