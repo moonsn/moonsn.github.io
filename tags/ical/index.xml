@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ical on moonsn&#39;s profile</title>
+    <link>http://moonsn.com/tags/ical/</link>
+    <description>Recent content in Ical on moonsn&#39;s profile</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate>
+    <atom:link href="http://moonsn.com/tags/ical/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>eol教务系统课表导出到ical格式</title>
+      <link>http://moonsn.com/projects/eolical/</link>
+      <pubDate>Sun, 01 May 2016 16:34:01 +0800</pubDate>
+      
+      <guid>http://moonsn.com/projects/eolical/</guid>
+      <description>&lt;p&gt;这是&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
