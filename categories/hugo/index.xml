@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/categories/hugo/</link>
+    <link>https://moonsn.com/categories/hugo/</link>
     <description>Recent content in hugo on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate><atom:link href="https://moonsn.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo生成静态文件</title>
-      <link>http://moonsn.com/post/deploymenthugo/</link>
+      <link>https://moonsn.com/post/deploymenthugo/</link>
       <pubDate>Wed, 21 Oct 2015 19:54:25 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/deploymenthugo/</guid>
+      <guid>https://moonsn.com/post/deploymenthugo/</guid>
       <description>$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false </description>
     </item>
     
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://moonsn.com/post/hugo-single/</link>
+      <link>https://moonsn.com/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/hugo-single/</guid>
+      <guid>https://moonsn.com/post/hugo-single/</guid>
       <description>single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。
 会用哪个模板来渲染呢？ Hugo 用一系列的规则来推测应该用哪个模板类渲染一个页面。
 Hugo 选择模板的优先级如下表。如果一个文件不存在，那么下一个会被使用。这使得你可以为更多的页面设计模板。但多数情况下,列表最后的_default 文件就够啦。

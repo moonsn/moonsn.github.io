@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>io on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/io/</link>
+    <link>https://moonsn.com/tags/io/</link>
     <description>Recent content in io on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate><atom:link href="https://moonsn.com/tags/io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unix I/O</title>
-      <link>http://moonsn.com/post/stdio/</link>
+      <link>https://moonsn.com/post/stdio/</link>
       <pubDate>Tue, 15 Dec 2015 13:43:41 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/stdio/</guid>
+      <guid>https://moonsn.com/post/stdio/</guid>
       <description>使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题
 缓冲  全缓冲 行缓冲 不带缓冲  int fflush(FILE *fp);//可以强制冲洗缓冲区打开流 FILE *fopen(const char *restrict pathname, const char *restrict type);FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);FILE *fdopen(int fd, const char *type);int fclose(FILE *fp);//关闭流读写流 按字符 读：
 int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STDIN);值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof;

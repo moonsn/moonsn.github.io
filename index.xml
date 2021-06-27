@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>moonsn&#39;s profile</title>
-    <link>http://moonsn.com/</link>
+    <link>https://moonsn.com/</link>
     <description>Recent content on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate><atom:link href="https://moonsn.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eol教务系统课表导出到ical格式</title>
-      <link>http://moonsn.com/projects/eolical/</link>
+      <link>https://moonsn.com/projects/eolical/</link>
       <pubDate>Sun, 01 May 2016 16:34:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/projects/eolical/</guid>
+      <guid>https://moonsn.com/projects/eolical/</guid>
       <description>本来是一年前的想法，但是但是在给学校写办公系统结果忘了弄，再加上windows的日历是很鸡肋的，就不了了之了。换了电脑以后发现mac的日历还是挺有用的，然后接趁着五一假期做了个小工具，方便把教务在线的课程导出。然而对大三的我只能用最后一学期了。。。
  说明一下 eol是清华大学做的教务综合管理系统，俗称教务在线。可能各个学校的教务在线系统不一样，可能只适合我们学校这个，其他学校就得看着改改了。
 iCalendar是一种日历文件格式，具体请点名称进维基百科。（并不是说明软件），开发的时候遵循的是RFC5545（这是定义ical格式的标准）的标准。
@@ -28,10 +28,10 @@ demo 你可以到这里使用：eolical
     
     <item>
       <title>《STL源码剖析》读书笔记</title>
-      <link>http://moonsn.com/books/stlread/</link>
+      <link>https://moonsn.com/books/stlread/</link>
       <pubDate>Mon, 18 Apr 2016 13:42:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/books/stlread/</guid>
+      <guid>https://moonsn.com/books/stlread/</guid>
       <description>迭代器的设计 1. 迭代器iterator模式在《Design Patterns》中是这么定义的： 提供一直方法，使之能够依序巡防某个聚合物所含的各个元素，而又无线暴露该聚合物的 内部表述方式。  2. 获取迭代器所指对象的型别 template &amp;lt;class I, class T&amp;gt; void func_impl(I iter, T t) { T tmp; } template &amp;lt;class I&amp;gt; inline void func(I iter) { func_impl(iter, *iter) } int main() { int i; func(&amp;amp;i); } 这里利用function template的参数推导机制获取迭代器的相应型别。
 3. Traits 技巧 由于function template推导的是模板参数，无法推导函数的返回值型别、 所以用 声明内嵌型别的方式
 template &amp;lt;class T&amp;gt; struct MyIter { typedef T value_type; T* ptr; MyIter(T* p = 0) : ptr(p) {} T&amp;amp; operator*() const { return *ptr; } } template &amp;lt;class I&amp;gt; tpyename I::value_type func(I ite) { return *ite; } MyIter&amp;lt;int&amp;gt; ite(new int(8)); cout &amp;lt;&amp;lt; func(ite); // print: 8 又由于内嵌型别只能用于class type，对于原生指针又无法支持。所以需要用到 template partial specialization模板偏特化来对原生指针做支持</description>
@@ -39,10 +39,10 @@ template &amp;lt;class T&amp;gt; struct MyIter { typedef T value_type; T* ptr; M
     
     <item>
       <title>Unix I/O</title>
-      <link>http://moonsn.com/post/stdio/</link>
+      <link>https://moonsn.com/post/stdio/</link>
       <pubDate>Tue, 15 Dec 2015 13:43:41 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/stdio/</guid>
+      <guid>https://moonsn.com/post/stdio/</guid>
       <description>使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题
 缓冲  全缓冲 行缓冲 不带缓冲  int fflush(FILE *fp);//可以强制冲洗缓冲区打开流 FILE *fopen(const char *restrict pathname, const char *restrict type);FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);FILE *fdopen(int fd, const char *type);int fclose(FILE *fp);//关闭流读写流 按字符 读：
 int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STDIN);值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof;
@@ -51,10 +51,10 @@ int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STD
     
     <item>
       <title>producer consumer problem in Go</title>
-      <link>http://moonsn.com/post/producer-consumer/</link>
+      <link>https://moonsn.com/post/producer-consumer/</link>
       <pubDate>Tue, 01 Dec 2015 13:43:41 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/producer-consumer/</guid>
+      <guid>https://moonsn.com/post/producer-consumer/</guid>
       <description>生产者消费者问题(Producer–consumer problem)是一个典型的并发问题，生产者产生数据，同时消费者也在消费数据。
 Go的特点就是并发性，所以实现这个问题对go来说很轻松。
 package main import &amp;quot;fmt&amp;quot; var done = make(chan bool) var products = make(chan int) func producer() { for i := 0; i &amp;lt; 10; i++ { products &amp;lt;- i fmt.Println(i, &amp;quot; produced!&amp;quot;) } done &amp;lt;- true } func consumer() { for { product := &amp;lt;- products fmt.Println(product, &amp;quot; consumed!&amp;quot;) } } func main() { go producer(); go consumer(); &amp;lt;- done } </description>
@@ -62,10 +62,10 @@ package main import &amp;quot;fmt&amp;quot; var done = make(chan bool) var produ
     
     <item>
       <title>运算符重载中的问题</title>
-      <link>http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 08 Nov 2015 15:53:52 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://moonsn.com/post/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>我们知道c++的运算符是可以重载的(个别除外)。
 class A{}; A&amp;amp; operator,(A&amp;amp;, A&amp;amp;); //重载了逗号运算符 bool operator&amp;amp;&amp;amp;(A&amp;amp;, A&amp;amp;); //重载了&amp;amp;&amp;amp;运算符  A b1, b2; if (b1&amp;amp;&amp;amp;b2) b1, b2; // if(operator&amp;amp;&amp;amp;(b1, b2)) operator,(b1,b2); 可以看到，重载了运算符之后，对运算符的使用被替换为相应的函数调用形式。因此，旧有的运算符的执行顺序不再适用，取而代之的是函数参数的压栈顺序。
 短路语义只是一个方面，更重要的在于压栈顺序。鉴于执行效率和旧代码兼容性等细节问题，C++标准在压栈顺序上给编译器的开发者留有很大自主性。标准的说辞是，编译器可能以任何它觉得方便的顺序将参数压栈，从左到右，从右到左，甚至从中间到两边，在这一点上我们不能安全地做任何假设。在上面的例子中，编译器生成的代码可能先计算b1再计算b2，也可能是相反的顺序。
@@ -75,10 +75,10 @@ class A{}; A&amp;amp; operator,(A&amp;amp;, A&amp;amp;); //重载了逗号运算
     
     <item>
       <title>jQuery Tips</title>
-      <link>http://moonsn.com/post/jquery_tips/</link>
+      <link>https://moonsn.com/post/jquery_tips/</link>
       <pubDate>Sun, 08 Nov 2015 12:27:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/jquery_tips/</guid>
+      <guid>https://moonsn.com/post/jquery_tips/</guid>
       <description>昨天这做了轮播，网速跟不上的话，会很难看。。 今天发现这个小技巧~记上！
 图片预加载
 $.preloadImages = function () { for (var i = 0; i &amp;lt; arguments.length; i++) { $(&#39;&amp;lt;img&amp;gt;&#39;).attr(&#39;src&#39;, arguments[i]); } }; $.preloadImages(&#39;img/hover-on.png&#39;, &#39;img/hover-off.png&#39;); </description>
@@ -86,10 +86,10 @@ $.preloadImages = function () { for (var i = 0; i &amp;lt; arguments.length; i++
     
     <item>
       <title>Thread</title>
-      <link>http://moonsn.com/post/thread/</link>
+      <link>https://moonsn.com/post/thread/</link>
       <pubDate>Wed, 04 Nov 2015 15:10:00 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/thread/</guid>
+      <guid>https://moonsn.com/post/thread/</guid>
       <description>前段时间看了golang.并行的模块停下来了，正好这个学期上操作系统，而且前段时间的五子棋设计的时候需要网络通信。多线程就成了必要的东西的了。是时候看看线程了。
  在没有设计多线程之前，我们的程序是step by step的！
 大程序往往会由许许多多的小程序组成，例如，Web服务器需要处理从浏览器发来的请求，并回复HTML页面。每个请求就像一个小程序。 web服务器能同时处理多个请求，这就需要并行的技术了。
@@ -103,10 +103,10 @@ package main import &amp;quot;fmt&amp;quot; import &amp;quot;time&amp;quot; func
     
     <item>
       <title>停电一天</title>
-      <link>http://moonsn.com/post/nowifi/</link>
+      <link>https://moonsn.com/post/nowifi/</link>
       <pubDate>Mon, 26 Oct 2015 21:41:17 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/nowifi/</guid>
+      <guid>https://moonsn.com/post/nowifi/</guid>
       <description>全校电力检修，没有电没有网。这种日子就应该11点起，1点睡午觉，4点起，看会儿书。
 5点，wow来点了。。。。
 6点，操作系统课
@@ -120,19 +120,19 @@ package main import &amp;quot;fmt&amp;quot; import &amp;quot;time&amp;quot; func
     
     <item>
       <title>Hugo生成静态文件</title>
-      <link>http://moonsn.com/post/deploymenthugo/</link>
+      <link>https://moonsn.com/post/deploymenthugo/</link>
       <pubDate>Wed, 21 Oct 2015 19:54:25 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/deploymenthugo/</guid>
+      <guid>https://moonsn.com/post/deploymenthugo/</guid>
       <description>$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false </description>
     </item>
     
     <item>
       <title>Golang中的方法与接口</title>
-      <link>http://moonsn.com/post/golang_3/</link>
+      <link>https://moonsn.com/post/golang_3/</link>
       <pubDate>Wed, 21 Oct 2015 19:46:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_3/</guid>
+      <guid>https://moonsn.com/post/golang_3/</guid>
       <description>方法 Go虽然没有类，但是可以在struct上定义方法。
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;math&amp;quot; ) type Vertex struct { X, Y float64 } func (v *Vertex) Abs() float64 { return math.Sqrt(v.X*v.X + v.Y*v.Y) } func (v *Vertex) Show(what string) { fmt.Println(&amp;quot;show &amp;quot;, what) } func main() { v := &amp;amp;Vertex{3, 4} fmt.Println(v.Abs()) v.Show(&amp;quot;me&amp;quot;) } 其实，只要在你的包里声明的任何类型都可以定义方法
 package main import ( &amp;quot;fmt&amp;quot; &amp;quot;math&amp;quot; ) type MyFloat float64 func (f MyFloat) Abs() float64 { if f &amp;lt; 0 { return float64(-f) } return float64(f) } func main() { f := MyFloat(-math.</description>
@@ -140,20 +140,20 @@ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;math&amp;quot; ) type My
     
     <item>
       <title>Golang中的map和闭包</title>
-      <link>http://moonsn.com/post/golang_2/</link>
+      <link>https://moonsn.com/post/golang_2/</link>
       <pubDate>Wed, 21 Oct 2015 14:56:57 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golang_2/</guid>
+      <guid>https://moonsn.com/post/golang_2/</guid>
       <description>Range range可以对slice或者map进行迭代循环
 package main import &amp;quot;fmt&amp;quot; var pow = []int{1, 2, 4, 8, 16, 32, 64, 128} func main() { for i, v := range pow { fmt.Printf(&amp;quot;2**%d = %d\n&amp;quot;, i, v) } } exercise-slices.go package main import &amp;quot;golang.org/x/tour/pic&amp;quot; func Pic(dx, dy int) [][]uint8 { pic := make([][]uint8, dy); for y := range pic { pic[y] = make([]uint8, dx) for x := range pic[y] { pic[y][x] = uint8((x+y)/2) } } return pic } func main() { pic.</description>
     </item>
     
     <item>
       <title>Golang中的Slice</title>
-      <link>http://moonsn.com/post/golangslice/</link>
+      <link>https://moonsn.com/post/golangslice/</link>
       <pubDate>Wed, 21 Oct 2015 14:17:10 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/golangslice/</guid>
+      <guid>https://moonsn.com/post/golangslice/</guid>
       <description>What? Slice(切片)可以看做是包含三个属性：
  指向数组的指针 切片的长度 切片的容量  使用[]来访问切片，len函数可以返回切片的长度，cap函数可以返回切片的容量。
 How To Creat It? s := make([]int, 10) // len(s) = 10, cap(s) = 10 or s := []int{1, 2, 3, 4, 5} //len(s) = 5, cap(s) = 5 or var a [10]int s := a[1:5] //len(s) = 4, cap(s) = 10, same as make([]int, 4, 10) 当数组a改变是，切片也会变。切片的操作也会影响数组
@@ -163,10 +163,10 @@ package main import &amp;quot;fmt&amp;quot; func main() { var a = [...]int{1,2,3
     
     <item>
       <title>Golang的结构，基本类型及语法</title>
-      <link>http://moonsn.com/post/aboutgolang/</link>
+      <link>https://moonsn.com/post/aboutgolang/</link>
       <pubDate>Wed, 21 Oct 2015 11:00:08 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/aboutgolang/</guid>
+      <guid>https://moonsn.com/post/aboutgolang/</guid>
       <description>golang需要指定一个工作目录
 ▾ workspace ▾ src (用于存放go源码) ▾ pkg (放包) ▾ bin (编译出来的东西会放到这里) go源码文件的第一行必须是
 package name  当你import一个package的时候，他会解析出目录最后一个元素作为包名，以便在代码中使用。
@@ -178,10 +178,10 @@ $GOPATH/src/github.com/moonsn/stringutil/reverse_test.go package stringutil impo
     
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://moonsn.com/post/hugo-single/</link>
+      <link>https://moonsn.com/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/hugo-single/</guid>
+      <guid>https://moonsn.com/post/hugo-single/</guid>
       <description>single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。
 会用哪个模板来渲染呢？ Hugo 用一系列的规则来推测应该用哪个模板类渲染一个页面。
 Hugo 选择模板的优先级如下表。如果一个文件不存在，那么下一个会被使用。这使得你可以为更多的页面设计模板。但多数情况下,列表最后的_default 文件就够啦。
@@ -195,10 +195,10 @@ Single  /layouts/TYPE-or-SECTION/LAYOUT.html /layouts/TYPE-or-SECTION/single.htm
     
     <item>
       <title>about</title>
-      <link>http://moonsn.com/about/</link>
+      <link>https://moonsn.com/about/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/about/</guid>
+      <guid>https://moonsn.com/about/</guid>
       <description>网名: 沐恩, moonsn(英语), 무은슨(韩语)
 喜欢看韩剧，喜欢歌手IU，就算玩的菜也要玩守望先锋；
 Timeline  1994 - 出生中国重庆 2008 - 获得一台 MTK 平台手机, 学会如何使用 xml 构建网页 2009 - 开始使用 php 编程 2010 - 获得一台 Symbian 平台手机，Nokia 5230, 并通过 PAMP for S60v3 给第一次尝试给开源软件 phpBB-WAP 贡献插件 2011 - 注册了 moonsn.com 域名 2012 - 开始使用 python 编写脚本 2013 - 拥有第一台电脑 2016 - 通过兼职外包，购买了 rMBP 13&#39; 顶配 2017 - 遇到 Zhu ❤, 毕业于 哈尔滨理工大学, 入职 百度 搜索架构部，后端研发工程师  To Be Continue &amp;hellip;</description>
@@ -206,10 +206,10 @@ Timeline  1994 - 出生中国重庆 2008 - 获得一台 MTK 平台手机, 学会
     
     <item>
       <title>python之socket</title>
-      <link>http://moonsn.com/post/pythonsocket/</link>
+      <link>https://moonsn.com/post/pythonsocket/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/pythonsocket/</guid>
+      <guid>https://moonsn.com/post/pythonsocket/</guid>
       <description>cs模式中,服务器需要完成以下任务
  创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
  创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字
@@ -224,46 +224,46 @@ import socket# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字
     
     <item>
       <title>汲取知识中...</title>
-      <link>http://moonsn.com/book/</link>
+      <link>https://moonsn.com/book/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/book/</guid>
+      <guid>https://moonsn.com/book/</guid>
       <description> 《C++ Primer》 [DOING] 《SGI STL 源码解析》 《数学之美》 《Linux C编程》 《Pro git》 《人月神话》 [TODO] 《UML Distilled》 by Martin Fowler(2nd edition, Addison-Wesley,2000) [TODO] 《Effective C++》 by Addison-Wesley,1998  </description>
     </item>
     
     <item>
       <title>汲取知识中...</title>
-      <link>http://moonsn.com/books/testbook/</link>
+      <link>https://moonsn.com/books/testbook/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/books/testbook/</guid>
+      <guid>https://moonsn.com/books/testbook/</guid>
       <description>读书目录  《C++ Primer》 [DOING] 《SGI STL 源码解析》 《数学之美》 《Linux C编程》 《Pro git》 《人月神话》 [TODO] 《UML Distilled》 by Martin Fowler(2nd edition, Addison-Wesley,2000) [TODO] 《Effective C++》 by Addison-Wesley,1998  </description>
     </item>
     
     <item>
       <title>🔧</title>
-      <link>http://moonsn.com/wiki/</link>
+      <link>https://moonsn.com/wiki/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/wiki/</guid>
+      <guid>https://moonsn.com/wiki/</guid>
       <description>硬件  网络设备: EX-R + UniFi 6 Lite 存储：Synology DiskStation DS218+ (代替 dropbox, 安装 docker 各种应用) 生产力:  Ipad Pro 2020 外出带它应付紧急问题确实够了 家用:  本子：MacBook Pro (Retina, 13-inch, Early 2015) i7 16G 台式: AMD ryzen 7 1700 + GeForce® GTX 1070 G1 Gaming 8G   公司:  公司发的 rMBP 2020 8G 自购 intel NUC 8代厚版 + 32G 内存 + 1T SSD (公司配置低配mbp吃灰了）      工具类  neovim 配置齐全的vim tmux sublime text vscode ProcessOn 在线制图工具，流程图，ER图轻松搞定.</description>
     </item>
     
     <item>
       <title>std::move()将左值转化为右值</title>
-      <link>http://moonsn.com/post/welcome/</link>
+      <link>https://moonsn.com/post/welcome/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/welcome/</guid>
+      <guid>https://moonsn.com/post/welcome/</guid>
       <description>&lt;p&gt;this is summary?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>选择Hugo作为博客生成器</title>
-      <link>http://moonsn.com/post/first/</link>
+      <link>https://moonsn.com/post/first/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:50 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/first/</guid>
+      <guid>https://moonsn.com/post/first/</guid>
       <description>最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。
 google static blog.发现了Hugo这个好东西。
  Hugo 是19世纪法国积极浪漫主义作家
@@ -272,10 +272,10 @@ google static blog.发现了Hugo这个好东西。
     
     <item>
       <title></title>
-      <link>http://moonsn.com/archive/archive/</link>
+      <link>https://moonsn.com/archive/archive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://moonsn.com/archive/archive/</guid>
+      <guid>https://moonsn.com/archive/archive/</guid>
       <description></description>
     </item>
     

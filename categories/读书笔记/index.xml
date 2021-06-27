@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>读书笔记 on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <link>https://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 读书笔记 on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 18 Apr 2016 13:42:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2016 13:42:01 +0800</lastBuildDate><atom:link href="https://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>《STL源码剖析》读书笔记</title>
-      <link>http://moonsn.com/books/stlread/</link>
+      <link>https://moonsn.com/books/stlread/</link>
       <pubDate>Mon, 18 Apr 2016 13:42:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/books/stlread/</guid>
+      <guid>https://moonsn.com/books/stlread/</guid>
       <description>迭代器的设计 1. 迭代器iterator模式在《Design Patterns》中是这么定义的： 提供一直方法，使之能够依序巡防某个聚合物所含的各个元素，而又无线暴露该聚合物的 内部表述方式。  2. 获取迭代器所指对象的型别 template &amp;lt;class I, class T&amp;gt; void func_impl(I iter, T t) { T tmp; } template &amp;lt;class I&amp;gt; inline void func(I iter) { func_impl(iter, *iter) } int main() { int i; func(&amp;amp;i); } 这里利用function template的参数推导机制获取迭代器的相应型别。
 3. Traits 技巧 由于function template推导的是模板参数，无法推导函数的返回值型别、 所以用 声明内嵌型别的方式
 template &amp;lt;class T&amp;gt; struct MyIter { typedef T value_type; T* ptr; MyIter(T* p = 0) : ptr(p) {} T&amp;amp; operator*() const { return *ptr; } } template &amp;lt;class I&amp;gt; tpyename I::value_type func(I ite) { return *ite; } MyIter&amp;lt;int&amp;gt; ite(new int(8)); cout &amp;lt;&amp;lt; func(ite); // print: 8 又由于内嵌型别只能用于class type，对于原生指针又无法支持。所以需要用到 template partial specialization模板偏特化来对原生指针做支持</description>

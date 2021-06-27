@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/blog/</link>
+    <link>https://moonsn.com/tags/blog/</link>
     <description>Recent content in blog on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 20 Oct 2015 22:29:32 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2015 22:29:32 +0800</lastBuildDate><atom:link href="https://moonsn.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>为Hugo的文章页创建模板</title>
-      <link>http://moonsn.com/post/hugo-single/</link>
+      <link>https://moonsn.com/post/hugo-single/</link>
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/hugo-single/</guid>
+      <guid>https://moonsn.com/post/hugo-single/</guid>
       <description>single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。
 会用哪个模板来渲染呢？ Hugo 用一系列的规则来推测应该用哪个模板类渲染一个页面。
 Hugo 选择模板的优先级如下表。如果一个文件不存在，那么下一个会被使用。这使得你可以为更多的页面设计模板。但多数情况下,列表最后的_default 文件就够啦。
@@ -26,10 +26,10 @@ Single  /layouts/TYPE-or-SECTION/LAYOUT.html /layouts/TYPE-or-SECTION/single.htm
     
     <item>
       <title>选择Hugo作为博客生成器</title>
-      <link>http://moonsn.com/post/first/</link>
+      <link>https://moonsn.com/post/first/</link>
       <pubDate>Tue, 20 Oct 2015 16:38:50 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/first/</guid>
+      <guid>https://moonsn.com/post/first/</guid>
       <description>最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。
 google static blog.发现了Hugo这个好东西。
  Hugo 是19世纪法国积极浪漫主义作家

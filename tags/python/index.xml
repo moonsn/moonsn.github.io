@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/python/</link>
+    <link>https://moonsn.com/tags/python/</link>
     <description>Recent content in python on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 04 Nov 2015 15:10:00 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Nov 2015 15:10:00 +0800</lastBuildDate><atom:link href="https://moonsn.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thread</title>
-      <link>http://moonsn.com/post/thread/</link>
+      <link>https://moonsn.com/post/thread/</link>
       <pubDate>Wed, 04 Nov 2015 15:10:00 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/thread/</guid>
+      <guid>https://moonsn.com/post/thread/</guid>
       <description>前段时间看了golang.并行的模块停下来了，正好这个学期上操作系统，而且前段时间的五子棋设计的时候需要网络通信。多线程就成了必要的东西的了。是时候看看线程了。
  在没有设计多线程之前，我们的程序是step by step的！
 大程序往往会由许许多多的小程序组成，例如，Web服务器需要处理从浏览器发来的请求，并回复HTML页面。每个请求就像一个小程序。 web服务器能同时处理多个请求，这就需要并行的技术了。
@@ -26,10 +26,10 @@ package main import &amp;quot;fmt&amp;quot; import &amp;quot;time&amp;quot; func
     
     <item>
       <title>python之socket</title>
-      <link>http://moonsn.com/post/pythonsocket/</link>
+      <link>https://moonsn.com/post/pythonsocket/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/pythonsocket/</guid>
+      <guid>https://moonsn.com/post/pythonsocket/</guid>
       <description>cs模式中,服务器需要完成以下任务
  创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
  创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字

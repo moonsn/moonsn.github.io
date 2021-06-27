@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/categories/python/</link>
+    <link>https://moonsn.com/categories/python/</link>
     <description>Recent content in python on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 20 Oct 2015 17:55:24 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Oct 2015 17:55:24 +0800</lastBuildDate><atom:link href="https://moonsn.com/categories/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python之socket</title>
-      <link>http://moonsn.com/post/pythonsocket/</link>
+      <link>https://moonsn.com/post/pythonsocket/</link>
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
-      <guid>http://moonsn.com/post/pythonsocket/</guid>
+      <guid>https://moonsn.com/post/pythonsocket/</guid>
       <description>cs模式中,服务器需要完成以下任务
  创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
  创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>php on moonsn&#39;s profile</title>
-    <link>http://moonsn.com/tags/php/</link>
+    <link>https://moonsn.com/tags/php/</link>
     <description>Recent content in php on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate><atom:link href="https://moonsn.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eol教务系统课表导出到ical格式</title>
-      <link>http://moonsn.com/projects/eolical/</link>
+      <link>https://moonsn.com/projects/eolical/</link>
       <pubDate>Sun, 01 May 2016 16:34:01 +0800</pubDate>
       
-      <guid>http://moonsn.com/projects/eolical/</guid>
+      <guid>https://moonsn.com/projects/eolical/</guid>
       <description>本来是一年前的想法，但是但是在给学校写办公系统结果忘了弄，再加上windows的日历是很鸡肋的，就不了了之了。换了电脑以后发现mac的日历还是挺有用的，然后接趁着五一假期做了个小工具，方便把教务在线的课程导出。然而对大三的我只能用最后一学期了。。。
  说明一下 eol是清华大学做的教务综合管理系统，俗称教务在线。可能各个学校的教务在线系统不一样，可能只适合我们学校这个，其他学校就得看着改改了。
 iCalendar是一种日历文件格式，具体请点名称进维基百科。（并不是说明软件），开发的时候遵循的是RFC5545（这是定义ical格式的标准）的标准。
