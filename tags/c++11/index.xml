@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c&#43;&#43;11 on moonsn&#39;s profile</title>
+    <link>http://moonsn.com/tags/c&#43;&#43;11/</link>
+    <description>Recent content in c&#43;&#43;11 on moonsn&#39;s profile</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 20 Oct 2015 16:38:57 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/c++11/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>std::move()将左值转化为右值</title>
+      <link>http://moonsn.com/post/welcome/</link>
+      <pubDate>Tue, 20 Oct 2015 16:38:57 +0800</pubDate>
+      
+      <guid>http://moonsn.com/post/welcome/</guid>
+      <description>&lt;p&gt;this is summary?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

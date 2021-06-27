@@ -1,153 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on moonsn&#39;s profile</title>
+    <title>python on moonsn&#39;s profile</title>
     <link>http://moonsn.com/tags/python/</link>
-    <description>Recent content in Python on moonsn&#39;s profile</description>
+    <description>Recent content in python on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 04 Nov 2015 15:10:00 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 04 Nov 2015 15:10:00 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Thread</title>
       <link>http://moonsn.com/post/thread/</link>
       <pubDate>Wed, 04 Nov 2015 15:10:00 +0800</pubDate>
       
       <guid>http://moonsn.com/post/thread/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;前段时间看了golang.并行的模块停下来了，正好这个学期上操作系统，而且前段时间的五子棋设计的时候需要网络通信。多线程就成了必要的东西的了。是时候看看线程了。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;在没有设计多线程之前，我们的程序是step by step的！&lt;/p&gt;
-
-&lt;p&gt;大程序往往会由许许多多的小程序组成，例如，Web服务器需要处理从浏览器发来的请求，并回复HTML页面。每个请求就像一个小程序。
-web服务器能同时处理多个请求，这就需要并行的技术了。&lt;/p&gt;
-
-&lt;p&gt;在java中要使一个类的几个示例多线程运行，则类需要继承自&lt;code&gt;Runnable&lt;/code&gt;类。然后用 &lt;code&gt;Thread&lt;/code&gt;类来创建进程。(当然还有其他的方式).&lt;/p&gt;
-
-&lt;p&gt;在Go中，用&lt;code&gt;goroutines&lt;/code&gt; 和 &lt;code&gt;channels&lt;/code&gt;来支持并行.&lt;/p&gt;
-
-&lt;h2 id=&#34;goroutines:8f9474acbe8eccfc75abfaabcbdf5ffa&#34;&gt;Goroutines&lt;/h2&gt;
-
-&lt;p&gt;对于&lt;code&gt;goroutines&lt;/code&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;A goroutine is a function that is capable of running concurrently with other functions.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;要新建一个&lt;code&gt;goroutine&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;package main
-
-import &amp;quot;fmt&amp;quot;
-import &amp;quot;time&amp;quot;
-
-func f(n int) {
-	for i := 0; i &amp;lt; 10; i++ {
-		fmt.Println(n, &amp;quot;:&amp;quot;, i)
-		time.Sleep(time.Millisecond * 1000)
-	}
-}
-
-func main() {
-	go f(0)
-	var input string
-	fmt.Scanln(&amp;amp;input)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;上面的代码中有两个&lt;code&gt;goroutine&lt;/code&gt;。第一个是个隐式的:&lt;code&gt;main&lt;/code&gt;函数本身。第二个是我们用&lt;code&gt;go f(0)&lt;/code&gt;创建的。
-正常情况下，函数调用会执行完返回再进入下一行，但是有了&lt;code&gt;goroutine&lt;/code&gt;，会马上执行下一行，不用等到函数返回。&lt;/p&gt;
-
-&lt;p&gt;这么看来，go语言的&lt;code&gt;goroutine&lt;/code&gt;比java中的轻量了许多。也方便了不少。&lt;/p&gt;
-
-&lt;h2 id=&#34;channels:8f9474acbe8eccfc75abfaabcbdf5ffa&#34;&gt;channels&lt;/h2&gt;
-
-&lt;p&gt;对于&lt;code&gt;channels&lt;/code&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Channels provide a way for two goroutines to communicate with one another and synchronize
-their execution.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;pre&gt;&lt;code&gt;package main
-
-import (
-  &amp;quot;fmt&amp;quot;
-  &amp;quot;time&amp;quot;
-)
-
-func pinger(c chan string) {
-  for i := 0; ; i++ {
-    c &amp;lt;- &amp;quot;ping&amp;quot;
-  }
-}
-
-func printer(c chan string) {
-  for {
-    msg := &amp;lt;- c
-    fmt.Println(msg)
-    time.Sleep(time.Second * 1)
-  }
-}
-
-func main() {
-  var c chan string = make(chan string)
-
-  go pinger(c)
-  go printer(c)
-
-  var input string
-  fmt.Scanln(&amp;amp;input)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;channal的声明就不说了，我们可以当c时一个容器，这里是string容器。
-printer会输出c里的内容,而pinger书不断往容器里放入&amp;rdquo;ping&amp;rdquo;。当容器是空的时候，printer就会阻塞了.&lt;/p&gt;
-
-&lt;p&gt;对了,channel是可以有buffer大小的:&lt;code&gt;make(chan int , 3)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;select:8f9474acbe8eccfc75abfaabcbdf5ffa&#34;&gt;select&lt;/h2&gt;
-
-&lt;p&gt;这是&lt;code&gt;channel&lt;/code&gt;的switch。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func main() {
-  c1 := make(chan string)
-  c2 := make(chan string)
-
-  go func() {
-    for {
-      c1 &amp;lt;- &amp;quot;from 1&amp;quot;
-      time.Sleep(time.Second * 2)
-    }
-  }()
-
-  go func() {
-    for {
-      c2 &amp;lt;- &amp;quot;from 2&amp;quot;
-      time.Sleep(time.Second * 3)
-    }
-  }()
-
-  go func() {
-    for {
-      select {
-      case msg1 := &amp;lt;- c1:
-        fmt.Println(msg1)
-      case msg2 := &amp;lt;- c2:
-        fmt.Println(msg2)
-      }
-    }
-  }()
-
-  var input string
-  fmt.Scanln(&amp;amp;input)
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>前段时间看了golang.并行的模块停下来了，正好这个学期上操作系统，而且前段时间的五子棋设计的时候需要网络通信。多线程就成了必要的东西的了。是时候看看线程了。
+ 在没有设计多线程之前，我们的程序是step by step的！
+大程序往往会由许许多多的小程序组成，例如，Web服务器需要处理从浏览器发来的请求，并回复HTML页面。每个请求就像一个小程序。 web服务器能同时处理多个请求，这就需要并行的技术了。
+在java中要使一个类的几个示例多线程运行，则类需要继承自Runnable类。然后用 Thread类来创建进程。(当然还有其他的方式).
+在Go中，用goroutines 和 channels来支持并行.
+Goroutines 对于goroutines:
+ A goroutine is a function that is capable of running concurrently with other functions.
+ 要新建一个goroutine:
+package main import &amp;quot;fmt&amp;quot; import &amp;quot;time&amp;quot; func f(n int) { for i := 0; i &amp;lt; 10; i++ { fmt.Println(n, &amp;quot;:&amp;quot;, i) time.Sleep(time.Millisecond * 1000) } } func main() { go f(0) var input string fmt.Scanln(&amp;amp;input) } 上面的代码中有两个goroutine。第一个是个隐式的:main函数本身。第二个是我们用go f(0)创建的。 正常情况下，函数调用会执行完返回再进入下一行，但是有了goroutine，会马上执行下一行，不用等到函数返回。</description>
     </item>
     
     <item>
@@ -156,99 +30,16 @@ printer会输出c里的内容,而pinger书不断往容器里放入&amp;rdquo;pin
       <pubDate>Tue, 20 Oct 2015 17:55:24 +0800</pubDate>
       
       <guid>http://moonsn.com/post/pythonsocket/</guid>
-      <description>
-
-&lt;p&gt;cs模式中,服务器需要完成以下任务&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建socket()&lt;/li&gt;
-&lt;li&gt;绑定bind()&lt;/li&gt;
-&lt;li&gt;监听listen()&lt;/li&gt;
-&lt;li&gt;接受accept()&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;而客户端要完成&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;创建socket()&lt;/li&gt;
-&lt;li&gt;连接connet()&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;当应用进程发出socket系统调用时，操作系统会在自己的&lt;code&gt;套接字描述符表&lt;/code&gt;中添加一个&lt;code&gt;套接字描述符&lt;/code&gt;,这个&lt;code&gt;套接字描述符&lt;/code&gt;指向一个套接字&lt;/p&gt;
-
-&lt;p&gt;在套接字的数据结构中有许多参数需要填写&lt;/p&gt;
-
-&lt;h2 id=&#34;创建socket:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;创建socket&lt;/h2&gt;
-
-&lt;p&gt;刚刚创建一个新的套接字的时候，要指定&lt;code&gt;协议族&lt;/code&gt;和&lt;code&gt;服务类型&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;下面用python创建一个socket&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import socket
-# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型
-# (SOCK_STREAM，表示使用流式服务，也就是TCP服务)
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;绑定:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;绑定&lt;/h2&gt;
-
-&lt;p&gt;当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# 注意bind()参数是个二元的tuple,(IP地址, 端口)
-# python中可以用socket.gethostname()得到本地地址
-# 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上
-# 为空则默认为都可以连接
-s.bind((&#39;&#39;,5000))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;监听:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;监听&lt;/h2&gt;
-
-&lt;p&gt;接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# 1 表示  the maximum number of queued connections 
-s.listen(1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;接收:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;接收&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;# conn 是一个socket连接,addr 是地址
-conn, addr = s.accept()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;example:77fa53d2d1079b8cd2ecfed0def6d2fc&#34;&gt;example&lt;/h2&gt;
-
-&lt;p&gt;接下来上官网的例子&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# Echo server program
-import socket
-
-HOST = &#39;&#39;                 # Symbolic name meaning all available interfaces
-PORT = 50007              # Arbitrary non-privileged port
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))
-s.listen(1)
-conn, addr = s.accept()
-print &#39;Connected by&#39;, addr
-while 1:
-    data = conn.recv(1024)
-    if not data: break
-    conn.sendall(data)
-conn.close()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# Echo client program
-import socket
-
-HOST = &#39;daring.cwi.nl&#39;    # The remote host
-PORT = 50007              # The same port as used by the server
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
-s.sendall(&#39;Hello, world&#39;)
-data = s.recv(1024)
-s.close()
-print &#39;Received&#39;, repr(data)
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>cs模式中,服务器需要完成以下任务
+ 创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
+ 创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字
+在套接字的数据结构中有许多参数需要填写
+创建socket 刚刚创建一个新的套接字的时候，要指定协议族和服务类型
+下面用python创建一个socket
+import socket# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型# (SOCK_STREAM，表示使用流式服务，也就是TCP服务)s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)绑定 当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).
+# 注意bind()参数是个二元的tuple,(IP地址, 端口)# python中可以用socket.gethostname()得到本地地址# 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上# 为空则默认为都可以连接s.bind((&#39;&#39;,5000))监听 接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）
+# 1 表示 the maximum number of queued connections s.listen(1)接收 # conn 是一个socket连接,addr 是地址conn, addr = s.accept()example 接下来上官网的例子
+# Echo server programimport socketHOST = &#39;&#39; # Symbolic name meaning all available interfacesPORT = 50007 # Arbitrary non-privileged ports = socket.</description>
     </item>
     
   </channel>

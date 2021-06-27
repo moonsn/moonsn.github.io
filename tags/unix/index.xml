@@ -1,107 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Unix on moonsn&#39;s profile</title>
+    <title>unix on moonsn&#39;s profile</title>
     <link>http://moonsn.com/tags/unix/</link>
-    <description>Recent content in Unix on moonsn&#39;s profile</description>
+    <description>Recent content in unix on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/unix/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 15 Dec 2015 13:43:41 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/unix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unix I/O</title>
       <link>http://moonsn.com/post/stdio/</link>
       <pubDate>Tue, 15 Dec 2015 13:43:41 +0800</pubDate>
       
       <guid>http://moonsn.com/post/stdio/</guid>
-      <description>
-
-&lt;p&gt;使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题&lt;/p&gt;
-
-&lt;h2 id=&#34;缓冲:aeb762551f39a1799063c0291b6b6e61&#34;&gt;缓冲&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;全缓冲&lt;/li&gt;
-&lt;li&gt;行缓冲&lt;/li&gt;
-&lt;li&gt;不带缓冲&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code&gt;int fflush(FILE *fp);//可以强制冲洗缓冲区
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;打开流:aeb762551f39a1799063c0291b6b6e61&#34;&gt;打开流&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;FILE *fopen(const char *restrict pathname, const char *restrict type);
-FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);
-FILE *fdopen(int fd, const char *type);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;int fclose(FILE *fp);//关闭流
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;读写流:aeb762551f39a1799063c0291b6b6e61&#34;&gt;读写流&lt;/h2&gt;
-
-&lt;h3 id=&#34;按字符:aeb762551f39a1799063c0291b6b6e61&#34;&gt;按字符&lt;/h3&gt;
-
-&lt;p&gt;读：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;int getc(FILE *fp);
-int fgetc(FILE *fp);
-int getchar(void); // 相当于getc(STDIN);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用&lt;code&gt;ferror&lt;/code&gt;或&lt;code&gt;feof&lt;/code&gt;;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-int main(){
-    int c;
-    while((c = getc(stdin)) != EOF) {
-        if (putc(c, stdout) == EOF) {
-            fprintf(stderr, &amp;quot;output error&amp;quot;);
-        }
-    }
-
-    if (ferror(stdin)) { //判断是EOF还是error
-        fprintf(stderr, &amp;quot;input error&amp;quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;写：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;int putc(int c, FILE *fp);
-int fputc(int c, FILE *fp);
-int putchar(int c);//相当于putc(c, stdout);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;按行:aeb762551f39a1799063c0291b6b6e61&#34;&gt;按行&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;char *fgets(char *restrict buf, int n, FILE *restrict fp);
-char *gets(char *buf); //不考虑缓冲区长度读，可能溢出
-char fputs(const char *restrict str, FILE *restrict fp);
-int puts(const char *str);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;二进制io:aeb762551f39a1799063c0291b6b6e61&#34;&gt;二进制IO&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;size_t fread(void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
-size_t fwrite(const void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;写一个结构到文件中：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;struct {
-    short count;
-    long total;
-    char name[NAMESIZE];
-} item;
-
-if (fwirte(&amp;amp;item, sizeof(item), 1, fp) != 1) {
-    fprintf(stderr, &amp;quot;fwirte error&amp;quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题
+缓冲  全缓冲 行缓冲 不带缓冲  int fflush(FILE *fp);//可以强制冲洗缓冲区打开流 FILE *fopen(const char *restrict pathname, const char *restrict type);FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);FILE *fdopen(int fd, const char *type);int fclose(FILE *fp);//关闭流读写流 按字符 读：
+int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STDIN);值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof;
+#include &amp;lt;stdio.h&amp;gt;int main(){int c;while((c = getc(stdin)) != EOF) {if (putc(c, stdout) == EOF) {fprintf(stderr, &amp;quot;output error&amp;quot;);}}if (ferror(stdin)) { //判断是EOF还是errorfprintf(stderr, &amp;quot;input error&amp;quot;);}}写：</description>
     </item>
     
   </channel>

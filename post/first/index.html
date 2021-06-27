@@ -8,7 +8,10 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" property="og:description" content="最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。 google static blog.发现了Hugo这个好东西。 Hugo 是19世纪法国积极浪漫主义作家 它配置简单（在不自制主题的情况下） 用golang编写的，仅仅需要一个二进制文件就可以生成静态博客 作为google粉，用golang语言的东西（渲染模板是golang的）感觉很棒">
+<meta name="description" property="og:description" content="最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。
+google static blog.发现了Hugo这个好东西。
+ Hugo 是19世纪法国积极浪漫主义作家
+  它配置简单（在不自制主题的情况下） 用golang编写的，仅仅需要一个二进制文件就可以生成静态博客 作为google粉，用golang语言的东西（渲染模板是golang的）感觉很棒  ">
 
  
 <meta property="og:type" content="article"/>
@@ -26,7 +29,10 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="选择Hugo作为博客生成器">
-<meta name="twitter:description" content="最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。 google static blog.发现了Hugo这个好东西。 Hugo 是19世纪法国积极浪漫主义作家 它配置简单（在不自制主题的情况下） 用golang编写的，仅仅需要一个二进制文件就可以生成静态博客 作为google粉，用golang语言的东西（渲染模板是golang的）感觉很棒">
+<meta name="twitter:description" content="最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。 一直在寻找一个简单易用的博客，WordPress太过臃肿了。
+google static blog.发现了Hugo这个好东西。
+ Hugo 是19世纪法国积极浪漫主义作家
+  它配置简单（在不自制主题的情况下） 用golang编写的，仅仅需要一个二进制文件就可以生成静态博客 作为google粉，用golang语言的东西（渲染模板是golang的）感觉很棒  ">
 
 
 
@@ -46,6 +52,11 @@
   <link rel="stylesheet" href="http://moonsn.com//css/main.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
 <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+<style>
+body {
+    font-family: Roboto, Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Noto Sans CJK", sans-serif;
+}
+</style>
 
 
 </head>
@@ -60,15 +71,15 @@
         
       </a>
       
-      <a href="http://moonsn.com/about/">About</a>
+      <a href="http://moonsn.com/about">About</a>
       
-      <a href="http://moonsn.com/archive/">Archive</a>
+      <a href="http://moonsn.com/archive">Archive</a>
       
-      <a href="http://moonsn.com/books/">Books</a>
+      <a href="http://moonsn.com/books">Books</a>
       
-      <a href="http://moonsn.com/projects/">Projects</a>
+      <a href="http://moonsn.com/projects">Projects</a>
       
-      <a href="http://moonsn.com/wiki/">Tools</a>
+      <a href="http://moonsn.com/wiki">Tools</a>
       
     </nav>
   </header>
@@ -106,13 +117,10 @@
     <section>
       <p>最近读书很多，感悟也很多。此刻明白我那失去多年的博客该重新上阵了。
 一直在寻找一个简单易用的博客，WordPress太过臃肿了。</p>
-
 <p>google static blog.发现了Hugo这个好东西。</p>
-
 <blockquote>
 <p>Hugo 是19世纪法国积极浪漫主义作家</p>
 </blockquote>
-
 <ul>
 <li>它配置简单（在不自制主题的情况下）</li>
 <li>用golang编写的，仅仅需要一个二进制文件就可以生成静态博客</li>
@@ -160,11 +168,11 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="container">
     <nav>
       <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
-      <a href="http://moonsn.com/about/">About</a>   &middot; 
-      <a href="http://moonsn.com/archive/">Archive</a>   &middot; 
-      <a href="http://moonsn.com/books/">Books</a>   &middot; 
-      <a href="http://moonsn.com/projects/">Projects</a>   &middot; 
-      <a href="http://moonsn.com/wiki/">Tools</a> 
+      <a href="http://moonsn.com/about">About</a>   &middot; 
+      <a href="http://moonsn.com/archive">Archive</a>   &middot; 
+      <a href="http://moonsn.com/books">Books</a>   &middot; 
+      <a href="http://moonsn.com/projects">Projects</a>   &middot; 
+      <a href="http://moonsn.com/wiki">Tools</a> 
     </nav>
 
     <nav class="social">
@@ -192,6 +200,18 @@ s.setAttribute('data-timestamp', +new Date());
 
 <script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 

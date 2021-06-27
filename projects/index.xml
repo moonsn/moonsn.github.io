@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on moonsn&#39;s profile</title>
@@ -6,68 +6,24 @@
     <description>Recent content in Projects on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/projects/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 01 May 2016 16:34:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eol教务系统课表导出到ical格式</title>
       <link>http://moonsn.com/projects/eolical/</link>
       <pubDate>Sun, 01 May 2016 16:34:01 +0800</pubDate>
       
       <guid>http://moonsn.com/projects/eolical/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;本来是一年前的想法，但是但是在给学校写办公系统结果忘了弄，再加上windows的日历是很鸡肋的，就不了了之了。换了电脑以后发现mac的日历还是挺有用的，然后接趁着五一假期做了个小工具，方便把教务在线的课程导出。然而对大三的我只能用最后一学期了。。。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;说明一下:530e6cff7be5a75517889b44477705c3&#34;&gt;说明一下&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;eol&lt;/code&gt;是清华大学做的教务综合管理系统，俗称&lt;code&gt;教务在线&lt;/code&gt;。可能各个学校的教务在线系统不一样，可能只适合我们学校这个，其他学校就得看着改改了。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/ICalendar&#34;&gt;iCalendar&lt;/a&gt;是一种日历文件格式，具体请点名称进维基百科。（并不是说明软件），开发的时候遵循的是&lt;a href=&#34;https://tools.ietf.org/html/rfc5545&#34;&gt;RFC5545&lt;/a&gt;（这是定义ical格式的标准）的标准。&lt;/p&gt;
-
-&lt;h2 id=&#34;eol2ical:530e6cff7be5a75517889b44477705c3&#34;&gt;eol2ical&lt;/h2&gt;
-
-&lt;p&gt;这是把清华eol版(哈尔滨理工大学)教务在线课表导出到ics格式的脚本&lt;/p&gt;
-
-&lt;h2 id=&#34;demo:530e6cff7be5a75517889b44477705c3&#34;&gt;demo&lt;/h2&gt;
-
-&lt;p&gt;你可以到这里使用：&lt;a href=&#34;https://en.wikipedia.org/wiki/ICalendar&#34;&gt;eolical&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;如果你要自己使用:530e6cff7be5a75517889b44477705c3&#34;&gt;如果你要自己使用&lt;/h2&gt;
-
-&lt;p&gt;项目里面包含的文件可以在我的另外一个repo找到：&lt;a href=&#34;https://github.com/moonsn/curl_post&#34;&gt;curl_post&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;效果:530e6cff7be5a75517889b44477705c3&#34;&gt;效果&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h463k25ij21xm13gwrl&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h47yanixj20u01hcacu&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;可以使用的设备:530e6cff7be5a75517889b44477705c3&#34;&gt;可以使用的设备&lt;/h2&gt;
-
-&lt;p&gt;下载得到的文件可以导入到&lt;code&gt;谷歌日历&lt;/code&gt;,&lt;code&gt;iOS日历App&lt;/code&gt;,&lt;code&gt;Mac日历App&lt;/code&gt;&amp;hellip;.只要你的设备日历支持导入ics格式日历就行。&lt;/p&gt;
-
-&lt;h2 id=&#34;使用步骤:530e6cff7be5a75517889b44477705c3&#34;&gt;使用步骤&lt;/h2&gt;
-
-&lt;p&gt;输入信息点击导出&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3fl7yfuj216o1kw76q.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;默认浏览器里，IOS或mac会自动打卡日历，其他浏览器请选择日历引用打开下载到的文件。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3frnw5lj216o1kw0wj.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;可以新建一个日历。点完成。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3ftv8ymj216o1kw0uk.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在日历应用里打开相应的日历。就完成了！&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3fhpdxuj216o0w0tat.jpg&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3fwvmioj216o1kwn0n.jpg&#34; alt=&#34;&#34; /&gt;
-&lt;img src=&#34;http://ww2.sinaimg.cn/large/a15b4afegw1f3h3fd06b9j216o0w0gmv.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-</description>
+      <description>本来是一年前的想法，但是但是在给学校写办公系统结果忘了弄，再加上windows的日历是很鸡肋的，就不了了之了。换了电脑以后发现mac的日历还是挺有用的，然后接趁着五一假期做了个小工具，方便把教务在线的课程导出。然而对大三的我只能用最后一学期了。。。
+ 说明一下 eol是清华大学做的教务综合管理系统，俗称教务在线。可能各个学校的教务在线系统不一样，可能只适合我们学校这个，其他学校就得看着改改了。
+iCalendar是一种日历文件格式，具体请点名称进维基百科。（并不是说明软件），开发的时候遵循的是RFC5545（这是定义ical格式的标准）的标准。
+eol2ical 这是把清华eol版(哈尔滨理工大学)教务在线课表导出到ics格式的脚本
+demo 你可以到这里使用：eolical
+如果你要自己使用 项目里面包含的文件可以在我的另外一个repo找到：curl_post
+效果 可以使用的设备 下载得到的文件可以导入到谷歌日历,iOS日历App,Mac日历App&amp;hellip;.只要你的设备日历支持导入ics格式日历就行。
+使用步骤 输入信息点击导出
+默认浏览器里，IOS或mac会自动打卡日历，其他浏览器请选择日历引用打开下载到的文件。
+可以新建一个日历。点完成。
+在日历应用里打开相应的日历。就完成了！</description>
     </item>
     
   </channel>

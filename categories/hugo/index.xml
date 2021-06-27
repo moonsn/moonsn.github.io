@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on moonsn&#39;s profile</title>
+    <title>hugo on moonsn&#39;s profile</title>
     <link>http://moonsn.com/categories/hugo/</link>
-    <description>Recent content in Hugo on moonsn&#39;s profile</description>
+    <description>Recent content in hugo on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 21 Oct 2015 19:54:25 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo生成静态文件</title>
       <link>http://moonsn.com/post/deploymenthugo/</link>
       <pubDate>Wed, 21 Oct 2015 19:54:25 +0800</pubDate>
       
       <guid>http://moonsn.com/post/deploymenthugo/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>$ sudo hugo server --watch --baseUrl=http://yoursite.org/ --appendPort=false </description>
     </item>
     
     <item>
@@ -26,143 +22,15 @@
       <pubDate>Tue, 20 Oct 2015 22:29:32 +0800</pubDate>
       
       <guid>http://moonsn.com/post/hugo-single/</guid>
-      <description>
-
-&lt;p&gt;single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。&lt;/p&gt;
-
-&lt;h2 id=&#34;会用哪个模板来渲染呢:e6d3cde5b499b420f687e97496609c42&#34;&gt;会用哪个模板来渲染呢？&lt;/h2&gt;
-
-&lt;p&gt;Hugo 用一系列的规则来推测应该用哪个模板类渲染一个页面。&lt;/p&gt;
-
-&lt;p&gt;Hugo 选择模板的优先级如下表。如果一个文件不存在，那么下一个会被使用。这使得你可以为更多的页面设计模板。但多数情况下,列表最后的&lt;code&gt;_default&lt;/code&gt; 文件就够啦。&lt;/p&gt;
-
-&lt;p&gt;用户可以在&lt;code&gt;front-matter&lt;/code&gt;部分定义&lt;code&gt;type&lt;/code&gt; 和&lt;code&gt;layout&lt;/code&gt;指定用哪个模板渲染。&lt;code&gt;Section&lt;/code&gt;是由md文件所在的位置来确定的。当然，如果你指定了&lt;code&gt;type&lt;/code&gt;，那么还是以&lt;code&gt;type&lt;/code&gt;为准。&lt;/p&gt;
-
-&lt;h3 id=&#34;single:e6d3cde5b499b420f687e97496609c42&#34;&gt;Single&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;/layouts/TYPE-or-SECTION/LAYOUT.html&lt;/li&gt;
-&lt;li&gt;/layouts/TYPE-or-SECTION/single.html&lt;/li&gt;
-&lt;li&gt;/layouts/_default/single.html&lt;/li&gt;
-&lt;li&gt;/themes/THEME/layouts/TYPE-or-SECTION/LAYOUT.html&lt;/li&gt;
-&lt;li&gt;/themes/THEME/layouts/TYPE-or-SECTION/single.html&lt;/li&gt;
-&lt;li&gt;/themes/THEME/layouts/_default/single.html&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;模板示例:e6d3cde5b499b420f687e97496609c42&#34;&gt;模板示例&lt;/h2&gt;
-
-&lt;p&gt;md页面是&amp;rsquo;page&amp;rsquo;类型的，在他的模板中可以使用所有&lt;code&gt;page variables&lt;/code&gt;和&lt;code&gt;site variable&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;下面我们将造着默认的模板，创建两个不同的类型的模板。&lt;/p&gt;
-
-&lt;p&gt;默认模板会在没有指定type是使用，他的工作原理和其他模板是一样的，但是他必须在&amp;rdquo;_default&amp;rdquo;目录下。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-code&#34;&gt;▾ layouts/
-	▾ _default/
-		single.html
-	▾ post/
-		single.html
-	▾ project/
-		single.html
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;post-single-html:e6d3cde5b499b420f687e97496609c42&#34;&gt;post/single.html&lt;/h3&gt;
-
-&lt;p&gt;这个模板是&lt;a href=&#34;http://spf13.com&#34;&gt;spf13.com&lt;/a&gt;在使用的模板。他用到了&lt;code&gt;partial templates&lt;/code&gt;(也就是模板引用)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ partial &amp;quot;header.html&amp;quot; . }}
-{{ partial &amp;quot;subheader.html&amp;quot; . }}
-{{ $baseurl := .Site.BaseURL }}
-
-&amp;lt;section id=&amp;quot;main&amp;quot;&amp;gt;
-  &amp;lt;h1 id=&amp;quot;title&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
-  &amp;lt;div&amp;gt;
-        &amp;lt;article id=&amp;quot;content&amp;quot;&amp;gt;
-           {{ .Content }}
-        &amp;lt;/article&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/section&amp;gt;
-
-&amp;lt;aside id=&amp;quot;meta&amp;quot;&amp;gt;
-    &amp;lt;div&amp;gt;
-    &amp;lt;section&amp;gt;
-      &amp;lt;h4 id=&amp;quot;date&amp;quot;&amp;gt; {{ .Date.Format &amp;quot;Mon Jan 2, 2006&amp;quot; }} &amp;lt;/h4&amp;gt;
-      &amp;lt;h5 id=&amp;quot;wc&amp;quot;&amp;gt; {{ .FuzzyWordCount }} Words &amp;lt;/h5&amp;gt;
-    &amp;lt;/section&amp;gt;
-    &amp;lt;ul id=&amp;quot;categories&amp;quot;&amp;gt;
-      {{ range .Params.topics }}
-        &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{ $baseurl }}/topics/{{ . | urlize }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
-      {{ end }}
-    &amp;lt;/ul&amp;gt;
-    &amp;lt;ul id=&amp;quot;tags&amp;quot;&amp;gt;
-      {{ range .Params.tags }}
-        &amp;lt;li&amp;gt; &amp;lt;a href=&amp;quot;{{ $baseurl }}/tags/{{ . | urlize }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
-      {{ end }}
-    &amp;lt;/ul&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div&amp;gt;
-        {{ if .Prev }}
-          &amp;lt;a class=&amp;quot;previous&amp;quot; href=&amp;quot;{{.Prev.Permalink}}&amp;quot;&amp;gt; {{.Prev.Title}}&amp;lt;/a&amp;gt;
-        {{ end }}
-        {{ if .Next }}
-          &amp;lt;a class=&amp;quot;next&amp;quot; href=&amp;quot;{{.Next.Permalink}}&amp;quot;&amp;gt; {{.Next.Title}}&amp;lt;/a&amp;gt;
-        {{ end }}
-    &amp;lt;/div&amp;gt;
-&amp;lt;/aside&amp;gt;
-
-{{ partial &amp;quot;disqus.html&amp;quot; . }}
-{{ partial &amp;quot;footer.html&amp;quot; . }}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;project-single-html:e6d3cde5b499b420f687e97496609c42&#34;&gt;project/single.html&lt;/h3&gt;
-
-&lt;p&gt;这个模板是&lt;a href=&#34;http://spf13.com&#34;&gt;spf13.com&lt;/a&gt;在使用的模板。他用到了&lt;code&gt;partial templates&lt;/code&gt;(也就是模板引用)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;{{ partial &amp;quot;header.html&amp;quot; . }}
-{{ partial &amp;quot;subheader.html&amp;quot; . }}
-{{ $baseurl := .Site.BaseURL }}
-
-&amp;lt;section id=&amp;quot;main&amp;quot;&amp;gt;
-  &amp;lt;h1 id=&amp;quot;title&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
-  &amp;lt;div&amp;gt;
-        &amp;lt;article id=&amp;quot;content&amp;quot;&amp;gt;
-           {{ .Content }}
-        &amp;lt;/article&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/section&amp;gt;
-
-&amp;lt;aside id=&amp;quot;meta&amp;quot;&amp;gt;
-    &amp;lt;div&amp;gt;
-    &amp;lt;section&amp;gt;
-      &amp;lt;h4 id=&amp;quot;date&amp;quot;&amp;gt; {{ .Date.Format &amp;quot;Mon Jan 2, 2006&amp;quot; }} &amp;lt;/h4&amp;gt;
-      &amp;lt;h5 id=&amp;quot;wc&amp;quot;&amp;gt; {{ .FuzzyWordCount }} Words &amp;lt;/h5&amp;gt;
-    &amp;lt;/section&amp;gt;
-    &amp;lt;ul id=&amp;quot;categories&amp;quot;&amp;gt;
-      {{ range .Params.topics }}
-      &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;{{ $baseurl }}/topics/{{ . | urlize }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
-      {{ end }}
-    &amp;lt;/ul&amp;gt;
-    &amp;lt;ul id=&amp;quot;tags&amp;quot;&amp;gt;
-      {{ range .Params.tags }}
-        &amp;lt;li&amp;gt; &amp;lt;a href=&amp;quot;{{ $baseurl }}/tags/{{ . | urlize }}&amp;quot;&amp;gt;{{ . }}&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
-      {{ end }}
-    &amp;lt;/ul&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/aside&amp;gt;
-
-{{if isset .Params &amp;quot;project_url&amp;quot; }}
-&amp;lt;div id=&amp;quot;ribbon&amp;quot;&amp;gt;
-    &amp;lt;a href=&amp;quot;{{ index .Params &amp;quot;project_url&amp;quot; }}&amp;quot; rel=&amp;quot;me&amp;quot;&amp;gt;Fork me on GitHub&amp;lt;/a&amp;gt;
-&amp;lt;/div&amp;gt;
-{{ end }}
-
-{{ partial &amp;quot;footer.html&amp;quot; . }}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;注意，上面的project/single.html中使用了只对这个模板起作用的附加参数。他不需要提前定义，如果这个参数在&lt;code&gt;fornt-matter&lt;/code&gt;中定义了的话就能在模板中使用他。&lt;/p&gt;
-
-&lt;p&gt;当然，你可以用&lt;code&gt;content archetypes&lt;/code&gt;来快速生成这类模板对应的主题。&lt;/p&gt;
-</description>
+      <description>single 是最主要的视图，Hugo会为每个Markdown文件提供一个single模板来渲染。
+会用哪个模板来渲染呢？ Hugo 用一系列的规则来推测应该用哪个模板类渲染一个页面。
+Hugo 选择模板的优先级如下表。如果一个文件不存在，那么下一个会被使用。这使得你可以为更多的页面设计模板。但多数情况下,列表最后的_default 文件就够啦。
+用户可以在front-matter部分定义type 和layout指定用哪个模板渲染。Section是由md文件所在的位置来确定的。当然，如果你指定了type，那么还是以type为准。
+Single  /layouts/TYPE-or-SECTION/LAYOUT.html /layouts/TYPE-or-SECTION/single.html /layouts/_default/single.html /themes/THEME/layouts/TYPE-or-SECTION/LAYOUT.html /themes/THEME/layouts/TYPE-or-SECTION/single.html /themes/THEME/layouts/_default/single.html  模板示例 md页面是&amp;rsquo;page&amp;rsquo;类型的，在他的模板中可以使用所有page variables和site variable。
+下面我们将造着默认的模板，创建两个不同的类型的模板。
+默认模板会在没有指定type是使用，他的工作原理和其他模板是一样的，但是他必须在&amp;quot;_default&amp;quot;目录下。
+▾ layouts/ ▾ _default/ single.html ▾ post/ single.html ▾ project/ single.html post/single.html 这个模板是spf13.com在使用的模板。他用到了partial templates(也就是模板引用)
+{{ partial &amp;#34;header.html&amp;#34; . }} {{ partial &amp;#34;subheader.html&amp;#34; . }} {{ $baseurl := .Site.BaseURL }} &amp;lt;section id=&amp;#34;main&amp;#34;&amp;gt; &amp;lt;h1 id=&amp;#34;title&amp;#34;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt; &amp;lt;div&amp;gt; &amp;lt;article id=&amp;#34;content&amp;#34;&amp;gt; {{ .Content }} &amp;lt;/article&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; &amp;lt;aside id=&amp;#34;meta&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;section&amp;gt; &amp;lt;h4 id=&amp;#34;date&amp;#34;&amp;gt; {{ .</description>
     </item>
     
   </channel>

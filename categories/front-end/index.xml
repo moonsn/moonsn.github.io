@@ -1,34 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Front End on moonsn&#39;s profile</title>
+    <title>front-end on moonsn&#39;s profile</title>
     <link>http://moonsn.com/categories/front-end/</link>
-    <description>Recent content in Front End on moonsn&#39;s profile</description>
+    <description>Recent content in front-end on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 08 Nov 2015 12:27:01 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/categories/front-end/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 08 Nov 2015 12:27:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/front-end/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>jQuery Tips</title>
       <link>http://moonsn.com/post/jquery_tips/</link>
       <pubDate>Sun, 08 Nov 2015 12:27:01 +0800</pubDate>
       
       <guid>http://moonsn.com/post/jquery_tips/</guid>
-      <description>&lt;p&gt;昨天这做了轮播，网速跟不上的话，会很难看。。
-今天发现这个小技巧~记上！&lt;/p&gt;
-
-&lt;p&gt;图片预加载&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$.preloadImages = function () {
-  for (var i = 0; i &amp;lt; arguments.length; i++) {
-    $(&#39;&amp;lt;img&amp;gt;&#39;).attr(&#39;src&#39;, arguments[i]);
-  }
-};
-
-$.preloadImages(&#39;img/hover-on.png&#39;, &#39;img/hover-off.png&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>昨天这做了轮播，网速跟不上的话，会很难看。。 今天发现这个小技巧~记上！
+图片预加载
+$.preloadImages = function () { for (var i = 0; i &amp;lt; arguments.length; i++) { $(&#39;&amp;lt;img&amp;gt;&#39;).attr(&#39;src&#39;, arguments[i]); } }; $.preloadImages(&#39;img/hover-on.png&#39;, &#39;img/hover-off.png&#39;); </description>
     </item>
     
   </channel>

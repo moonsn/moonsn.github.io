@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>读书笔记 on moonsn&#39;s profile</title>
@@ -6,133 +6,16 @@
     <description>Recent content in 读书笔记 on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 18 Apr 2016 13:42:01 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 18 Apr 2016 13:42:01 +0800</lastBuildDate><atom:link href="http://moonsn.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>《STL源码剖析》读书笔记</title>
       <link>http://moonsn.com/books/stlread/</link>
       <pubDate>Mon, 18 Apr 2016 13:42:01 +0800</pubDate>
       
       <guid>http://moonsn.com/books/stlread/</guid>
-      <description>
-
-&lt;h2 id=&#34;迭代器的设计:2e660a4f3b4029d33da97197f6320630&#34;&gt;迭代器的设计&lt;/h2&gt;
-
-&lt;h4 id=&#34;1-迭代器-iterator-模式在-design-patterns-中是这么定义的:2e660a4f3b4029d33da97197f6320630&#34;&gt;1. 迭代器&lt;code&gt;iterator&lt;/code&gt;模式在《Design Patterns》中是这么定义的：&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;提供一直方法，使之能够依序巡防某个聚合物所含的各个元素，而又无线暴露该聚合物的
-内部表述方式。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-获取迭代器所指对象的型别:2e660a4f3b4029d33da97197f6320630&#34;&gt;2. 获取迭代器所指对象的型别&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;template &amp;lt;class I, class T&amp;gt;
-void func_impl(I iter, T t)
-{
-    T tmp;
-}
-
-template &amp;lt;class I&amp;gt;
-inline
-void func(I iter) {
- func_impl(iter, *iter)
-}
-
-int main() {
-    int i;
-    func(&amp;amp;i);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里利用&lt;code&gt;function template&lt;/code&gt;的参数推导机制获取迭代器的相应型别。&lt;/p&gt;
-
-&lt;h4 id=&#34;3-traits-技巧:2e660a4f3b4029d33da97197f6320630&#34;&gt;3. Traits 技巧&lt;/h4&gt;
-
-&lt;p&gt;由于&lt;code&gt;function template&lt;/code&gt;推导的是模板参数，无法推导函数的返回值型别、
-所以用 声明内嵌型别的方式&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;template &amp;lt;class T&amp;gt;
-struct MyIter {
-    typedef T value_type;
-    T* ptr;
-    MyIter(T* p = 0) : ptr(p) {}
-    T&amp;amp; operator*() const { return *ptr; }
-}
-
-template &amp;lt;class I&amp;gt;
-tpyename I::value_type
-func(I ite) {
-    return *ite;
-}
-
-MyIter&amp;lt;int&amp;gt; ite(new int(8));
-cout &amp;lt;&amp;lt; func(ite); // print: 8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;又由于内嵌型别只能用于&lt;code&gt;class type&lt;/code&gt;，对于原生指针又无法支持。所以需要用到
-&lt;code&gt;template partial specialization&lt;/code&gt;模板偏特化来对原生指针做支持&lt;/p&gt;
-
-&lt;p&gt;利用了偏特化的方式我们提取迭代器&lt;code&gt;value type&lt;/code&gt;就可以这么写：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;template &amp;lt;class I&amp;gt;
-struct iterator_traits {
-    typedef typename I::value_type value_type;
-}
-
-template &amp;lt;class T&amp;gt;
-struct iterator_traits&amp;lt;T*&amp;gt; { //偏特化版本，迭代器是原生指针
-    typedef T value_type;
-}
-
-//同样的，对const int *，提取int
-//即：对const T*,我们提取类型为T
-template &amp;lt;class T&amp;gt;
-struct iterator_traits&amp;lt;const T*&amp;gt; {
-    typedef T value_type;
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;4-迭代器分类:2e660a4f3b4029d33da97197f6320630&#34;&gt;4. 迭代器分类&lt;/h4&gt;
-
-&lt;p&gt;根据移动特性和施行操作，迭代器被分为五类：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Input Iterator: 所指对象只读。支持++操作&lt;/li&gt;
-&lt;li&gt;Output Iterator: Write Only.支持++操作&lt;/li&gt;
-&lt;li&gt;Forward Iterator: 允许写入。支持++操作&lt;/li&gt;
-&lt;li&gt;Bidirectional Iterator: 可双向移动。&lt;/li&gt;
-&lt;li&gt;Random Access Iterator:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;利用重载函数来对同一个算法的不同类型迭代器做不同的操作，定义相应的五种迭代器结构.
-在&lt;code&gt;traits&lt;/code&gt;里加入一条&lt;code&gt;iterator_category&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;template &amp;lt;class I&amp;gt;
-struct iterator_traits {
-    ...
-    typedef typename I::iterator_category iterator_category;
-}
-//还需要对原生指针进行偏特化处理
-
-
-//在算法中就这样使用，来激发函数重载机制(编译时期).
-template &amp;lt;class I, class Distance&amp;gt;
-inline void advance(I&amp;amp; i, Distance n) {
-    __advance(i, n, iterator_traits&amp;lt;I&amp;gt;::iterator_category());//做对应的操作
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;5-stl-iterator:2e660a4f3b4029d33da97197f6320630&#34;&gt;5. stl::iterator&lt;/h4&gt;
-
-&lt;p&gt;STL为我们提供了一个&lt;code&gt;iterator class&lt;/code&gt;我们的迭代器继承它就能符合stl的标准了。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;template &amp;lt;class Item&amp;gt;
-struct ListIter : public std::iterator&amp;lt;std::forward_iterator_tag, Item&amp;gt; { ... };
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>迭代器的设计 1. 迭代器iterator模式在《Design Patterns》中是这么定义的： 提供一直方法，使之能够依序巡防某个聚合物所含的各个元素，而又无线暴露该聚合物的 内部表述方式。  2. 获取迭代器所指对象的型别 template &amp;lt;class I, class T&amp;gt; void func_impl(I iter, T t) { T tmp; } template &amp;lt;class I&amp;gt; inline void func(I iter) { func_impl(iter, *iter) } int main() { int i; func(&amp;amp;i); } 这里利用function template的参数推导机制获取迭代器的相应型别。
+3. Traits 技巧 由于function template推导的是模板参数，无法推导函数的返回值型别、 所以用 声明内嵌型别的方式
+template &amp;lt;class T&amp;gt; struct MyIter { typedef T value_type; T* ptr; MyIter(T* p = 0) : ptr(p) {} T&amp;amp; operator*() const { return *ptr; } } template &amp;lt;class I&amp;gt; tpyename I::value_type func(I ite) { return *ite; } MyIter&amp;lt;int&amp;gt; ite(new int(8)); cout &amp;lt;&amp;lt; func(ite); // print: 8 又由于内嵌型别只能用于class type，对于原生指针又无法支持。所以需要用到 template partial specialization模板偏特化来对原生指针做支持</description>
     </item>
     
   </channel>

@@ -8,7 +8,16 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" property="og:description" content="cs模式中,服务器需要完成以下任务 创建socket() 绑定bind() 监听listen() 接受accept() 而客户端要完成 创建socket() 连接connet() 当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字 在套接字的数据结构中有许多参数需要填写 创建socket 刚刚创建一个新的套接字的时候，要指定协议族和服务类型 下面用python创建一个socket import socket # 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型 # (SOCK_STREAM，表示使用流式服务，也就是TCP服务) s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 绑定 当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址). # 注意bind()参数是个二元的tuple,(IP地址, 端口) # python中可以用socket.gethostname()得到本地地址 # 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上 # 为空则默认为都可以连接 s.bind((&#39;&#39;,5000)) 监听 接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen） # 1 表示 the maximum number of queued connections s.listen(1) 接收 # conn 是一个socket连接,addr 是地址 conn, addr = s.accept() example 接下来上官网的例子 # Echo server program import socket HOST = &#39;&#39; # Symbolic name">
+<meta name="description" property="og:description" content="cs模式中,服务器需要完成以下任务
+ 创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
+ 创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字
+在套接字的数据结构中有许多参数需要填写
+创建socket 刚刚创建一个新的套接字的时候，要指定协议族和服务类型
+下面用python创建一个socket
+import socket# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型# (SOCK_STREAM，表示使用流式服务，也就是TCP服务)s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)绑定 当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).
+# 注意bind()参数是个二元的tuple,(IP地址, 端口)# python中可以用socket.gethostname()得到本地地址# 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上# 为空则默认为都可以连接s.bind((&#39;&#39;,5000))监听 接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）
+# 1 表示 the maximum number of queued connections s.listen(1)接收 # conn 是一个socket连接,addr 是地址conn, addr = s.accept()example 接下来上官网的例子
+# Echo server programimport socketHOST = &#39;&#39; # Symbolic name meaning all available interfacesPORT = 50007 # Arbitrary non-privileged ports = socket.">
 
  
 <meta property="og:type" content="article"/>
@@ -27,7 +36,16 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python之socket">
-<meta name="twitter:description" content="cs模式中,服务器需要完成以下任务 创建socket() 绑定bind() 监听listen() 接受accept() 而客户端要完成 创建socket() 连接connet() 当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字 在套接字的数据结构中有许多参数需要填写 创建socket 刚刚创建一个新的套接字的时候，要指定协议族和服务类型 下面用python创建一个socket import socket # 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型 # (SOCK_STREAM，表示使用流式服务，也就是TCP服务) s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 绑定 当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址). # 注意bind()参数是个二元的tuple,(IP地址, 端口) # python中可以用socket.gethostname()得到本地地址 # 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上 # 为空则默认为都可以连接 s.bind((&#39;&#39;,5000)) 监听 接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen） # 1 表示 the maximum number of queued connections s.listen(1) 接收 # conn 是一个socket连接,addr 是地址 conn, addr = s.accept() example 接下来上官网的例子 # Echo server program import socket HOST = &#39;&#39; # Symbolic name">
+<meta name="twitter:description" content="cs模式中,服务器需要完成以下任务
+ 创建socket() 绑定bind() 监听listen() 接受accept()  而客户端要完成
+ 创建socket() 连接connet()  当应用进程发出socket系统调用时，操作系统会在自己的套接字描述符表中添加一个套接字描述符,这个套接字描述符指向一个套接字
+在套接字的数据结构中有许多参数需要填写
+创建socket 刚刚创建一个新的套接字的时候，要指定协议族和服务类型
+下面用python创建一个socket
+import socket# 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型# (SOCK_STREAM，表示使用流式服务，也就是TCP服务)s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)绑定 当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).
+# 注意bind()参数是个二元的tuple,(IP地址, 端口)# python中可以用socket.gethostname()得到本地地址# 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上# 为空则默认为都可以连接s.bind((&#39;&#39;,5000))监听 接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）
+# 1 表示 the maximum number of queued connections s.listen(1)接收 # conn 是一个socket连接,addr 是地址conn, addr = s.accept()example 接下来上官网的例子
+# Echo server programimport socketHOST = &#39;&#39; # Symbolic name meaning all available interfacesPORT = 50007 # Arbitrary non-privileged ports = socket.">
 
 
 
@@ -47,6 +65,11 @@
   <link rel="stylesheet" href="http://moonsn.com//css/main.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
 <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+<style>
+body {
+    font-family: Roboto, Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Noto Sans CJK", sans-serif;
+}
+</style>
 
 
 </head>
@@ -61,15 +84,15 @@
         
       </a>
       
-      <a href="http://moonsn.com/about/">About</a>
+      <a href="http://moonsn.com/about">About</a>
       
-      <a href="http://moonsn.com/archive/">Archive</a>
+      <a href="http://moonsn.com/archive">Archive</a>
       
-      <a href="http://moonsn.com/books/">Books</a>
+      <a href="http://moonsn.com/books">Books</a>
       
-      <a href="http://moonsn.com/projects/">Projects</a>
+      <a href="http://moonsn.com/projects">Projects</a>
       
-      <a href="http://moonsn.com/wiki/">Tools</a>
+      <a href="http://moonsn.com/wiki">Tools</a>
       
     </nav>
   </header>
@@ -112,69 +135,43 @@
     </header>
 
     <section>
-      
-
-<p>cs模式中,服务器需要完成以下任务</p>
-
+      <p>cs模式中,服务器需要完成以下任务</p>
 <ol>
 <li>创建socket()</li>
 <li>绑定bind()</li>
 <li>监听listen()</li>
 <li>接受accept()</li>
 </ol>
-
 <p>而客户端要完成</p>
-
 <ol>
 <li>创建socket()</li>
 <li>连接connet()</li>
 </ol>
-
 <p>当应用进程发出socket系统调用时，操作系统会在自己的<code>套接字描述符表</code>中添加一个<code>套接字描述符</code>,这个<code>套接字描述符</code>指向一个套接字</p>
-
 <p>在套接字的数据结构中有许多参数需要填写</p>
-
-<h2 id="创建socket:77fa53d2d1079b8cd2ecfed0def6d2fc">创建socket</h2>
-
+<h2 id="创建socket">创建socket</h2>
 <p>刚刚创建一个新的套接字的时候，要指定<code>协议族</code>和<code>服务类型</code></p>
-
 <p>下面用python创建一个socket</p>
-
 <pre><code>import socket
 # 这里使用的是AF_INET(PF_INET)，Pv4网络协议的套接字类型
 # (SOCK_STREAM，表示使用流式服务，也就是TCP服务)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-</code></pre>
-
-<h2 id="绑定:77fa53d2d1079b8cd2ecfed0def6d2fc">绑定</h2>
-
+</code></pre><h2 id="绑定">绑定</h2>
 <p>当套接字被创建后，它的端口号和ip地址都是空的，因此应用进程要调用bind(绑定)来指明套接字的本地地址(含本地端口号和本地IP地址).</p>
-
 <pre><code># 注意bind()参数是个二元的tuple,(IP地址, 端口)
 # python中可以用socket.gethostname()得到本地地址
 # 当地址为127.0.0.1或localhost的时候是本机通信，客户端和服务端在一台机器上
 # 为空则默认为都可以连接
 s.bind(('',5000))
-</code></pre>
-
-<h2 id="监听:77fa53d2d1079b8cd2ecfed0def6d2fc">监听</h2>
-
+</code></pre><h2 id="监听">监听</h2>
 <p>接下来就是通过监听，把套接字设置为被动方式，一边接受客户的服务请求（如果是UDP服务器提供无连接的服务，所以不适用listen）</p>
-
 <pre><code># 1 表示  the maximum number of queued connections 
 s.listen(1)
-</code></pre>
-
-<h2 id="接收:77fa53d2d1079b8cd2ecfed0def6d2fc">接收</h2>
-
+</code></pre><h2 id="接收">接收</h2>
 <pre><code># conn 是一个socket连接,addr 是地址
 conn, addr = s.accept()
-</code></pre>
-
-<h2 id="example:77fa53d2d1079b8cd2ecfed0def6d2fc">example</h2>
-
+</code></pre><h2 id="example">example</h2>
 <p>接下来上官网的例子</p>
-
 <pre><code># Echo server program
 import socket
 
@@ -190,9 +187,7 @@ while 1:
     if not data: break
     conn.sendall(data)
 conn.close()
-</code></pre>
-
-<pre><code># Echo client program
+</code></pre><pre><code># Echo client program
 import socket
 
 HOST = 'daring.cwi.nl'    # The remote host
@@ -204,7 +199,6 @@ data = s.recv(1024)
 s.close()
 print 'Received', repr(data)
 </code></pre>
-
     </section>
     <section>
     <div id="disqus_thread"></div>
@@ -246,11 +240,11 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="container">
     <nav>
       <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
-      <a href="http://moonsn.com/about/">About</a>   &middot; 
-      <a href="http://moonsn.com/archive/">Archive</a>   &middot; 
-      <a href="http://moonsn.com/books/">Books</a>   &middot; 
-      <a href="http://moonsn.com/projects/">Projects</a>   &middot; 
-      <a href="http://moonsn.com/wiki/">Tools</a> 
+      <a href="http://moonsn.com/about">About</a>   &middot; 
+      <a href="http://moonsn.com/archive">Archive</a>   &middot; 
+      <a href="http://moonsn.com/books">Books</a>   &middot; 
+      <a href="http://moonsn.com/projects">Projects</a>   &middot; 
+      <a href="http://moonsn.com/wiki">Tools</a> 
     </nav>
 
     <nav class="social">
@@ -278,6 +272,18 @@ s.setAttribute('data-timestamp', +new Date());
 
 <script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 

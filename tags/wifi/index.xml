@@ -1,38 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wifi on moonsn&#39;s profile</title>
+    <title>wifi on moonsn&#39;s profile</title>
     <link>http://moonsn.com/tags/wifi/</link>
-    <description>Recent content in Wifi on moonsn&#39;s profile</description>
+    <description>Recent content in wifi on moonsn&#39;s profile</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 26 Oct 2015 21:41:17 +0800</lastBuildDate>
-    <atom:link href="http://moonsn.com/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 26 Oct 2015 21:41:17 +0800</lastBuildDate><atom:link href="http://moonsn.com/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>停电一天</title>
       <link>http://moonsn.com/post/nowifi/</link>
       <pubDate>Mon, 26 Oct 2015 21:41:17 +0800</pubDate>
       
       <guid>http://moonsn.com/post/nowifi/</guid>
-      <description>&lt;p&gt;全校电力检修，没有电没有网。这种日子就应该11点起，1点睡午觉，4点起，看会儿书。&lt;/p&gt;
-
-&lt;p&gt;5点，wow来点了。。。。&lt;/p&gt;
-
-&lt;p&gt;6点，操作系统课&lt;/p&gt;
-
-&lt;p&gt;内存分配方案，最好的还是在std里的内存分配机制。分类检索分配!&lt;/p&gt;
-
-&lt;p&gt;水一下~~&lt;/p&gt;
-
-&lt;p&gt;更&lt;/p&gt;
-
-&lt;p&gt;昨天重构了一下五子棋的代码，然而，就在最后一刻手贱把代码给删了。。。。&lt;/p&gt;
-
-&lt;p&gt;回到前天的版本。。。。&lt;/p&gt;
-
-&lt;p&gt;累了，等有时间再重构吧。。。&lt;/p&gt;
-</description>
+      <description>全校电力检修，没有电没有网。这种日子就应该11点起，1点睡午觉，4点起，看会儿书。
+5点，wow来点了。。。。
+6点，操作系统课
+内存分配方案，最好的还是在std里的内存分配机制。分类检索分配!
+水一下~~
+更
+昨天重构了一下五子棋的代码，然而，就在最后一刻手贱把代码给删了。。。。
+回到前天的版本。。。。
+累了，等有时间再重构吧。。。</description>
     </item>
     
   </channel>

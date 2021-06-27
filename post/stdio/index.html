@@ -8,7 +8,10 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" property="og:description" content="使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题 缓冲 全缓冲 行缓冲 不带缓冲 int fflush(FILE *fp);//可以强制冲洗缓冲区 打开流 FILE *fopen(const char *restrict pathname, const char *restrict type); FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp); FILE *fdopen(int fd, const char *type); int fclose(FILE *fp);//关闭流 读写流 按字符 读： int getc(FILE *fp); int fgetc(FILE *fp); int getchar(void); // 相当于getc(STDIN); 值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof; #include &lt;stdio.h&gt; int main(){ int c; while((c = getc(stdin)) != EOF) { if (putc(c, stdout) == EOF)">
+<meta name="description" property="og:description" content="使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题
+缓冲  全缓冲 行缓冲 不带缓冲  int fflush(FILE *fp);//可以强制冲洗缓冲区打开流 FILE *fopen(const char *restrict pathname, const char *restrict type);FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);FILE *fdopen(int fd, const char *type);int fclose(FILE *fp);//关闭流读写流 按字符 读：
+int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STDIN);值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof;
+#include &lt;stdio.h&gt;int main(){int c;while((c = getc(stdin)) != EOF) {if (putc(c, stdout) == EOF) {fprintf(stderr, &quot;output error&quot;);}}if (ferror(stdin)) { //判断是EOF还是errorfprintf(stderr, &quot;input error&quot;);}}写：">
 
  
 <meta property="og:type" content="article"/>
@@ -26,7 +29,10 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unix I/O">
-<meta name="twitter:description" content="使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题 缓冲 全缓冲 行缓冲 不带缓冲 int fflush(FILE *fp);//可以强制冲洗缓冲区 打开流 FILE *fopen(const char *restrict pathname, const char *restrict type); FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp); FILE *fdopen(int fd, const char *type); int fclose(FILE *fp);//关闭流 读写流 按字符 读： int getc(FILE *fp); int fgetc(FILE *fp); int getchar(void); // 相当于getc(STDIN); 值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof; #include &lt;stdio.h&gt; int main(){ int c; while((c = getc(stdin)) != EOF) { if (putc(c, stdout) == EOF)">
+<meta name="twitter:description" content="使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题
+缓冲  全缓冲 行缓冲 不带缓冲  int fflush(FILE *fp);//可以强制冲洗缓冲区打开流 FILE *fopen(const char *restrict pathname, const char *restrict type);FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);FILE *fdopen(int fd, const char *type);int fclose(FILE *fp);//关闭流读写流 按字符 读：
+int getc(FILE *fp);int fgetc(FILE *fp);int getchar(void); // 相当于getc(STDIN);值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用ferror或feof;
+#include &lt;stdio.h&gt;int main(){int c;while((c = getc(stdin)) != EOF) {if (putc(c, stdout) == EOF) {fprintf(stderr, &quot;output error&quot;);}}if (ferror(stdin)) { //判断是EOF还是errorfprintf(stderr, &quot;input error&quot;);}}写：">
 
 
 
@@ -46,6 +52,11 @@
   <link rel="stylesheet" href="http://moonsn.com//css/main.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" >
 <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/8.8.0/styles/default.min.css">
+<style>
+body {
+    font-family: Roboto, Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Noto Sans CJK", sans-serif;
+}
+</style>
 
 
 </head>
@@ -60,15 +71,15 @@
         
       </a>
       
-      <a href="http://moonsn.com/about/">About</a>
+      <a href="http://moonsn.com/about">About</a>
       
-      <a href="http://moonsn.com/archive/">Archive</a>
+      <a href="http://moonsn.com/archive">Archive</a>
       
-      <a href="http://moonsn.com/books/">Books</a>
+      <a href="http://moonsn.com/books">Books</a>
       
-      <a href="http://moonsn.com/projects/">Projects</a>
+      <a href="http://moonsn.com/projects">Projects</a>
       
-      <a href="http://moonsn.com/wiki/">Tools</a>
+      <a href="http://moonsn.com/wiki">Tools</a>
       
     </nav>
   </header>
@@ -104,44 +115,26 @@
     </header>
 
     <section>
-      
-
-<p>使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题</p>
-
-<h2 id="缓冲:aeb762551f39a1799063c0291b6b6e61">缓冲</h2>
-
+      <p>使用标准IO的一个优点是不用考虑缓冲和最佳IO长度问题</p>
+<h2 id="缓冲">缓冲</h2>
 <ol>
 <li>全缓冲</li>
 <li>行缓冲</li>
 <li>不带缓冲</li>
 </ol>
-
 <pre><code>int fflush(FILE *fp);//可以强制冲洗缓冲区
-</code></pre>
-
-<h2 id="打开流:aeb762551f39a1799063c0291b6b6e61">打开流</h2>
-
+</code></pre><h2 id="打开流">打开流</h2>
 <pre><code>FILE *fopen(const char *restrict pathname, const char *restrict type);
 FILE *freopen(const char *restrict pathname, const char *restrict type, FILE *restrict fp);
 FILE *fdopen(int fd, const char *type);
-</code></pre>
-
-<pre><code>int fclose(FILE *fp);//关闭流
-</code></pre>
-
-<h2 id="读写流:aeb762551f39a1799063c0291b6b6e61">读写流</h2>
-
-<h3 id="按字符:aeb762551f39a1799063c0291b6b6e61">按字符</h3>
-
+</code></pre><pre><code>int fclose(FILE *fp);//关闭流
+</code></pre><h2 id="读写流">读写流</h2>
+<h3 id="按字符">按字符</h3>
 <p>读：</p>
-
 <pre><code>int getc(FILE *fp);
 int fgetc(FILE *fp);
 int getchar(void); // 相当于getc(STDIN);
-</code></pre>
-
-<p>值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用<code>ferror</code>或<code>feof</code>;</p>
-
+</code></pre><p>值得注意的是，不管是出错还是到文件结尾，3个函数返回值都相同。区别这两种情况，必须调用<code>ferror</code>或<code>feof</code>;</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main(){
     int c;
@@ -155,31 +148,19 @@ int main(){
         fprintf(stderr, &quot;input error&quot;);
     }
 }
-</code></pre>
-
-<p>写：</p>
-
+</code></pre><p>写：</p>
 <pre><code>int putc(int c, FILE *fp);
 int fputc(int c, FILE *fp);
 int putchar(int c);//相当于putc(c, stdout);
-</code></pre>
-
-<h3 id="按行:aeb762551f39a1799063c0291b6b6e61">按行</h3>
-
+</code></pre><h3 id="按行">按行</h3>
 <pre><code>char *fgets(char *restrict buf, int n, FILE *restrict fp);
 char *gets(char *buf); //不考虑缓冲区长度读，可能溢出
 char fputs(const char *restrict str, FILE *restrict fp);
 int puts(const char *str);
-</code></pre>
-
-<h2 id="二进制io:aeb762551f39a1799063c0291b6b6e61">二进制IO</h2>
-
+</code></pre><h2 id="二进制io">二进制IO</h2>
 <pre><code>size_t fread(void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
 size_t fwrite(const void *restrict ptr, size_t size, size_t nobj, FILE *restrict fp);
-</code></pre>
-
-<p>写一个结构到文件中：</p>
-
+</code></pre><p>写一个结构到文件中：</p>
 <pre><code>struct {
     short count;
     long total;
@@ -190,7 +171,6 @@ if (fwirte(&amp;item, sizeof(item), 1, fp) != 1) {
     fprintf(stderr, &quot;fwirte error&quot;);
 }
 </code></pre>
-
     </section>
     <section>
     <div id="disqus_thread"></div>
@@ -232,11 +212,11 @@ s.setAttribute('data-timestamp', +new Date());
   <div class="container">
     <nav>
       <a href="http://moonsn.com/">moonsn&#39;s profile</a> &middot;  
-      <a href="http://moonsn.com/about/">About</a>   &middot; 
-      <a href="http://moonsn.com/archive/">Archive</a>   &middot; 
-      <a href="http://moonsn.com/books/">Books</a>   &middot; 
-      <a href="http://moonsn.com/projects/">Projects</a>   &middot; 
-      <a href="http://moonsn.com/wiki/">Tools</a> 
+      <a href="http://moonsn.com/about">About</a>   &middot; 
+      <a href="http://moonsn.com/archive">Archive</a>   &middot; 
+      <a href="http://moonsn.com/books">Books</a>   &middot; 
+      <a href="http://moonsn.com/projects">Projects</a>   &middot; 
+      <a href="http://moonsn.com/wiki">Tools</a> 
     </nav>
 
     <nav class="social">
@@ -264,6 +244,18 @@ s.setAttribute('data-timestamp', +new Date());
 
 <script src="//cdn.bootcss.com/highlight.js/8.8.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'Your ID', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
 
